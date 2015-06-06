@@ -59,13 +59,13 @@ public class SunriseSunsetTest extends BaseTestCase {
 
 	@Test
 	public void testComputeOfficialSunrise() {
-		assertTimeEquals("07:05", calc.getOfficialSunriseForDate(eventDate),
+		assertTimeEquals("07:33", calc.getOfficialSunriseForDate(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeOfficialSunset() {
-		assertTimeEquals("18:28", calc.getOfficialSunsetForDate(eventDate),
+		assertTimeEquals("18:00", calc.getOfficialSunsetForDate(eventDate),
 				eventDate.getTime().toString());
 	}
 
@@ -79,13 +79,13 @@ public class SunriseSunsetTest extends BaseTestCase {
 
 		String officialSunriseForDate = calculator
 				.getOfficialSunriseForDate(calendar);
-		assertEquals("21:50", officialSunriseForDate);
+		assertEquals("22:35", officialSunriseForDate);
 
 		Calendar officialSunriseCalendarForDate = calculator
 				.getOfficialSunriseCalendarForDate(calendar);
-		assertEquals(21,
+		assertEquals(22,
 				officialSunriseCalendarForDate.get(Calendar.HOUR_OF_DAY));
-		assertEquals(50, officialSunriseCalendarForDate.get(Calendar.MINUTE));
+		assertEquals(35, officialSunriseCalendarForDate.get(Calendar.MINUTE));
 		assertEquals(6,
 				officialSunriseCalendarForDate.get(Calendar.DAY_OF_MONTH));
 	}
@@ -100,6 +100,6 @@ public class SunriseSunsetTest extends BaseTestCase {
 
 		String officialSunriseForDate = calculator
 				.getOfficialSunriseForDate(calendar);
-		assertEquals("05:55", officialSunriseForDate);
+		assertEquals("06:19", officialSunriseForDate);
 	}
 }
