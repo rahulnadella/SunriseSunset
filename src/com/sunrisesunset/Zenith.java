@@ -29,7 +29,7 @@ public class Zenith {
 	/**
 	 * Official sunrise/set is when the sun is 50' below the horizon.
 	 */
-	public static final Zenith OFFICIAL = new Zenith(96);
+	public static final Zenith OFFICIAL = new Zenith(90.8333);
 
 	protected final BigDecimal degrees;
 
