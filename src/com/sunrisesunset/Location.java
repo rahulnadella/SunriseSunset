@@ -2,6 +2,12 @@ package com.sunrisesunset;
 
 import java.math.BigDecimal;
 
+/**
+ * The {@link Location} class stores the latitude and longitude of a specific
+ * location.
+ * 
+ * @version 1.0
+ */
 public class Location {
 	protected BigDecimal latitude;
 	protected BigDecimal longitude;
