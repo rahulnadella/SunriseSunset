@@ -40,7 +40,7 @@ public class SolarEvent {
 	 * @return the sunrise time, in HH:MM format (24-hour clock), 00:00 if the
 	 *         sun does not rise on the given date.
 	 */
-	public String computeSunriseTime(Zenith solarZenith, Calendar date) {
+	public String computeSunriseTime(Twilight solarZenith, Calendar date) {
 		return getLocalTimeAsString(computeSolarEventTime(solarZenith, date,
 				true));
 	}
@@ -56,7 +56,7 @@ public class SolarEvent {
 	 *            the sunrise for.
 	 * @return the sunrise time as a calendar or null for no sunrise
 	 */
-	public Calendar computeSunriseCalendar(Zenith solarZenith, Calendar date) {
+	public Calendar computeSunriseCalendar(Twilight solarZenith, Calendar date) {
 		return getLocalTimeAsCalendar(
 				computeSolarEventTime(solarZenith, date, true), date);
 	}
@@ -73,7 +73,7 @@ public class SolarEvent {
 	 * @return the sunset time, in HH:MM format (24-hour clock), 00:00 if the
 	 *         sun does not set on the given date.
 	 */
-	public String computeSunsetTime(Zenith solarZenith, Calendar date) {
+	public String computeSunsetTime(Twilight solarZenith, Calendar date) {
 		return getLocalTimeAsString(computeSolarEventTime(solarZenith, date,
 				false));
 	}
@@ -89,12 +89,12 @@ public class SolarEvent {
 	 *            the sunset for.
 	 * @return the sunset time as a Calendar or null for no sunset.
 	 */
-	public Calendar computeSunsetCalendar(Zenith solarZenith, Calendar date) {
+	public Calendar computeSunsetCalendar(Twilight solarZenith, Calendar date) {
 		return getLocalTimeAsCalendar(
 				computeSolarEventTime(solarZenith, date, false), date);
 	}
 
-	protected BigDecimal computeSolarEventTime(Zenith solarZenith, Calendar date,
+	protected BigDecimal computeSolarEventTime(Twilight solarZenith, Calendar date,
 			boolean isSunrise) {
 		date.setTimeZone(this.timeZone);
 		BigDecimal longitudeHour = getLongitudeHour(date, isSunrise);
@@ -228,7 +228,7 @@ public class SolarEvent {
 	}
 
 	protected BigDecimal getCosineSunLocalHour(BigDecimal sunTrueLong,
-			Zenith zenith) {
+			Twilight zenith) {
 		BigDecimal sinSunDeclination = getSinOfSunDeclination(sunTrueLong);
 		BigDecimal cosineSunDeclination = getCosineOfSunDeclination(sinSunDeclination);
 

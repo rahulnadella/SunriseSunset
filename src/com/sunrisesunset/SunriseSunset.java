@@ -1,9 +1,9 @@
 package com.sunrisesunset;
 
-import static com.sunrisesunset.Zenith.ASTRONOMICAL;
-import static com.sunrisesunset.Zenith.CIVIL;
-import static com.sunrisesunset.Zenith.NAUTICAL;
-import static com.sunrisesunset.Zenith.OFFICIAL;
+import static com.sunrisesunset.Twilight.ASTRONOMICAL;
+import static com.sunrisesunset.Twilight.CIVIL;
+import static com.sunrisesunset.Twilight.NAUTICAL;
+import static com.sunrisesunset.Twilight.OFFICIAL;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -89,11 +89,11 @@ public class SunriseSunset {
 	}
 	
 	public static Calendar getSunrise(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-		return new SolarEvent(new Location(latitude, longitude), timeZone).computeSunriseCalendar(new Zenith(90 - degrees), date);
+		return new SolarEvent(new Location(latitude, longitude), timeZone).computeSunriseCalendar(new Twilight(90 - degrees), date);
 	}
 	
 	public static Calendar getSunset(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-        return new SolarEvent(new Location(latitude, longitude), timeZone).computeSunsetCalendar(new Zenith(90 - degrees), date);
+        return new SolarEvent(new Location(latitude, longitude), timeZone).computeSunsetCalendar(new Twilight(90 - degrees), date);
     }
 	
 	public Location getLocation() {
