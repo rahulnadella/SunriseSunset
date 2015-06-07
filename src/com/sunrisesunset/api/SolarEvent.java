@@ -1,6 +1,12 @@
 package com.sunrisesunset.api;
 
-import static com.sunrisesunset.util.TimeUtility.*;
+import static com.sunrisesunset.util.TimeUtility.convertDegreesToRadians;
+import static com.sunrisesunset.util.TimeUtility.convertRadiansToDegrees;
+import static com.sunrisesunset.util.TimeUtility.divideBy;
+import static com.sunrisesunset.util.TimeUtility.getDayOfYear;
+import static com.sunrisesunset.util.TimeUtility.getUTCOffset;
+import static com.sunrisesunset.util.TimeUtility.multiplyBy;
+import static com.sunrisesunset.util.TimeUtility.setScale;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
