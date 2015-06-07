@@ -1,4 +1,4 @@
-package com.sunrisesunset.api;
+package com.sunrisesunset.util;
 
 import static com.sunrisesunset.util.TimeUtility.convertDegreesToRadians;
 import static com.sunrisesunset.util.TimeUtility.convertRadiansToDegrees;
@@ -13,19 +13,20 @@ import java.math.RoundingMode;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import com.sunrisesunset.util.TimeUtility;
+import com.sunrisesunset.api.Location;
+import com.sunrisesunset.api.Twilight;
 
-public class SolarEvent {
+public class SunsetSunriseUtility {
 
 	protected final Location location;
 	protected final TimeZone timeZone;
 
-	public SolarEvent(Location location, String timeZoneIdentifier) {
+	public SunsetSunriseUtility(Location location, String timeZoneIdentifier) {
 		this.location = location;
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 	}
 
-	public SolarEvent(Location location, TimeZone timeZone) {
+	public SunsetSunriseUtility(Location location, TimeZone timeZone) {
 		this.location = location;
 		this.timeZone = timeZone;
 	}
