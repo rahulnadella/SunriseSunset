@@ -3,11 +3,11 @@ package com.sunrisesunset.api;
 import java.math.BigDecimal;
 
 /**
- * The definition of {@link Twilight} is the point on the celestial sphere vertically
- * above a given position or observer.
+ * The definition of {@link Twilight} is the point on the celestial sphere
+ * vertically above a given position or observer.
  * 
- * The {@link Twilight} class defines the solar declination used in computing the
- * sunrise/sunset.
+ * The {@link Twilight} class defines the solar declination used in computing
+ * the sunrise/sunset.
  * 
  * @version 1.0
  */
