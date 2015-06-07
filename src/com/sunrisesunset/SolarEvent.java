@@ -1,12 +1,12 @@
 package com.sunrisesunset;
 
-import static com.sunrisesunset.BigDecimalUtility.convertDegreesToRadians;
-import static com.sunrisesunset.BigDecimalUtility.convertRadiansToDegrees;
-import static com.sunrisesunset.BigDecimalUtility.divideBy;
-import static com.sunrisesunset.BigDecimalUtility.getDayOfYear;
-import static com.sunrisesunset.BigDecimalUtility.getUTCOffset;
-import static com.sunrisesunset.BigDecimalUtility.multiplyBy;
-import static com.sunrisesunset.BigDecimalUtility.setScale;
+import static com.sunrisesunset.TimeUtility.convertDegreesToRadians;
+import static com.sunrisesunset.TimeUtility.convertRadiansToDegrees;
+import static com.sunrisesunset.TimeUtility.divideBy;
+import static com.sunrisesunset.TimeUtility.getDayOfYear;
+import static com.sunrisesunset.TimeUtility.getUTCOffset;
+import static com.sunrisesunset.TimeUtility.multiplyBy;
+import static com.sunrisesunset.TimeUtility.setScale;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -165,7 +165,7 @@ public class SolarEvent {
 	 * @return the suns true longitude, in <code>BigDecimal</code> form.
 	 */
 	protected BigDecimal getSunTrueLongitude(BigDecimal meanAnomaly) {
-		BigDecimal sinMeanAnomaly = new BigDecimal(Math.sin(BigDecimalUtility
+		BigDecimal sinMeanAnomaly = new BigDecimal(Math.sin(TimeUtility
 				.convertDegreesToRadians(meanAnomaly).doubleValue()));
 		BigDecimal sinDoubleMeanAnomaly = new BigDecimal(
 				Math.sin(multiplyBy(
@@ -196,15 +196,15 @@ public class SolarEvent {
 	 *         form.
 	 */
 	protected BigDecimal getRightAscension(BigDecimal sunTrueLong) {
-		BigDecimal tanL = new BigDecimal(Math.tan(BigDecimalUtility
+		BigDecimal tanL = new BigDecimal(Math.tan(TimeUtility
 				.convertDegreesToRadians(sunTrueLong).doubleValue()));
 
 		BigDecimal innerParens = multiplyBy(
 				convertRadiansToDegrees(tanL),
 				new BigDecimal("0.91764"));
-		BigDecimal rightAscension = new BigDecimal(Math.atan(BigDecimalUtility
+		BigDecimal rightAscension = new BigDecimal(Math.atan(TimeUtility
 				.convertDegreesToRadians(innerParens).doubleValue()));
-		rightAscension = setScale(BigDecimalUtility
+		rightAscension = setScale(TimeUtility
 				.convertRadiansToDegrees(rightAscension));
 
 		if (rightAscension.doubleValue() < 0) {
@@ -232,7 +232,7 @@ public class SolarEvent {
 		BigDecimal sinSunDeclination = getSinOfSunDeclination(sunTrueLong);
 		BigDecimal cosineSunDeclination = getCosineOfSunDeclination(sinSunDeclination);
 
-		BigDecimal zenithInRads = BigDecimalUtility
+		BigDecimal zenithInRads = TimeUtility
 				.convertDegreesToRadians(zenith.degrees());
 		BigDecimal cosineZenith = BigDecimal.valueOf(Math.cos(zenithInRads
 				.doubleValue()));
@@ -271,9 +271,9 @@ public class SolarEvent {
 
 	protected BigDecimal getSunLocalHour(BigDecimal cosineSunLocalHour,
 			Boolean isSunrise) {
-		BigDecimal arcCosineOfCosineHourAngle = BigDecimalUtility
+		BigDecimal arcCosineOfCosineHourAngle = TimeUtility
 				.getArcCosineFor(cosineSunLocalHour);
-		BigDecimal localHour = BigDecimalUtility
+		BigDecimal localHour = TimeUtility
 				.convertRadiansToDegrees(arcCosineOfCosineHourAngle);
 		if (isSunrise) {
 			localHour = BigDecimal.valueOf(360).subtract(localHour);

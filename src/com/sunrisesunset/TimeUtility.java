@@ -5,7 +5,7 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Calendar;
 
-public class BigDecimalUtility {
+public class TimeUtility {
 
 	protected static BigDecimal getDayOfYear(Calendar date) {
 		return new BigDecimal(date.get(Calendar.DAY_OF_YEAR));
