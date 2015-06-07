@@ -6,8 +6,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import com.sunrisesunset.Location;
-import com.sunrisesunset.SunriseSunset;
+import com.sunrisesunset.api.Location;
+import com.sunrisesunset.api.SunriseSunset;
 
 public class SimpleTest {
 	

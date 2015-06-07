@@ -1,9 +1,9 @@
-package com.sunrisesunset;
+package com.sunrisesunset.api;
 
-import static com.sunrisesunset.Twilight.ASTRONOMICAL;
-import static com.sunrisesunset.Twilight.CIVIL;
-import static com.sunrisesunset.Twilight.NAUTICAL;
-import static com.sunrisesunset.Twilight.OFFICIAL;
+import static com.sunrisesunset.api.Twilight.ASTRONOMICAL;
+import static com.sunrisesunset.api.Twilight.CIVIL;
+import static com.sunrisesunset.api.Twilight.NAUTICAL;
+import static com.sunrisesunset.api.Twilight.OFFICIAL;
 
 import java.util.Calendar;
 import java.util.TimeZone;

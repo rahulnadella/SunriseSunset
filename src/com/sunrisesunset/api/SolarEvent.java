@@ -1,17 +1,13 @@
-package com.sunrisesunset;
+package com.sunrisesunset.api;
 
-import static com.sunrisesunset.TimeUtility.convertDegreesToRadians;
-import static com.sunrisesunset.TimeUtility.convertRadiansToDegrees;
-import static com.sunrisesunset.TimeUtility.divideBy;
-import static com.sunrisesunset.TimeUtility.getDayOfYear;
-import static com.sunrisesunset.TimeUtility.getUTCOffset;
-import static com.sunrisesunset.TimeUtility.multiplyBy;
-import static com.sunrisesunset.TimeUtility.setScale;
+import static com.sunrisesunset.util.TimeUtility.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Calendar;
 import java.util.TimeZone;
+
+import com.sunrisesunset.util.TimeUtility;
 
 public class SolarEvent {
 

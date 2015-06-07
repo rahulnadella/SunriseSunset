@@ -8,7 +8,7 @@ import java.util.TimeZone;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.sunrisesunset.Location;
+import com.sunrisesunset.api.Location;
 
 public class BaseTestCase {
 
