@@ -1,12 +1,12 @@
 package com.test.sunrisesunset;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
 
 import org.junit.Test;
 
-import com.sunrisesunset.api.Location;
 import com.sunrisesunset.api.SunriseSunset;
 
 public class SimpleTest {
@@ -14,8 +14,7 @@ public class SimpleTest {
 	@Test
 	public void simple()
 	{
-		Location location = new Location("40.7141667", "-74.0063889");
-		SunriseSunset sunriseSunset = new SunriseSunset("America/New_York", null, null);
+		SunriseSunset sunriseSunset = new SunriseSunset("America/New_York", "40.7141667", "-74.0063889");
 		
 		String officalSunrise = sunriseSunset.getOfficialSunriseForDate(Calendar.getInstance());
 		Calendar officalSunset = sunriseSunset.getOfficialSunsetCalendarForDate(Calendar.getInstance());

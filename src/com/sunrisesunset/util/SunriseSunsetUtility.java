@@ -21,18 +21,45 @@ public class SunriseSunsetUtility {
 	protected final BigDecimal longitude;
 	protected final TimeZone timeZone;
 
-	public SunriseSunsetUtility(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
+	public SunriseSunsetUtility(String timeZoneIdentifier, BigDecimal latitude,
+			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 	}
 
-	public SunriseSunsetUtility(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
+	public SunriseSunsetUtility(TimeZone timeZone, BigDecimal latitude,
+			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeZone = timeZone;
 	}
 
+	public SunriseSunsetUtility(String timeZoneIdentifier, Double latitude,
+			Double longitude) {
+		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
+		this.latitude = new BigDecimal(latitude);
+		this.longitude = new BigDecimal(longitude);
+	}
+
+	public SunriseSunsetUtility(TimeZone timeZone, Double latitude, Double longitude) {
+		this.timeZone = timeZone;
+		this.latitude = new BigDecimal(latitude);
+		this.longitude = new BigDecimal(longitude);
+	}
+	
+	public SunriseSunsetUtility(String timeZoneIdentifier, String latitude, String longitude) {
+		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
+		this.latitude = new BigDecimal(latitude);
+		this.longitude = new BigDecimal(longitude);
+	}
+	
+	public SunriseSunsetUtility(TimeZone timeZone, String latitude, String longitude) {
+		this.timeZone = timeZone;
+		this.latitude = new BigDecimal(latitude);
+		this.longitude = new BigDecimal(longitude);
+	}
+	
 	/**
 	 * Computes the sunrise time for the given zenith at the given date.
 	 *
@@ -99,8 +126,8 @@ public class SunriseSunsetUtility {
 				computeSolarEventTime(solarZenith, date, false), date);
 	}
 
-	protected BigDecimal computeSolarEventTime(Twilight solarZenith, Calendar date,
-			boolean isSunrise) {
+	protected BigDecimal computeSolarEventTime(Twilight solarZenith,
+			Calendar date, boolean isSunrise) {
 		date.setTimeZone(this.timeZone);
 		BigDecimal longitudeHour = getLongitudeHour(date, isSunrise);
 
@@ -127,8 +154,7 @@ public class SunriseSunsetUtility {
 	 *         (deg/hour), in <code>BigDecimal</code> form.
 	 */
 	protected BigDecimal getBaseLongitudeHour() {
-		return divideBy(longitude,
-				BigDecimal.valueOf(15));
+		return divideBy(longitude, BigDecimal.valueOf(15));
 	}
 
 	/**
@@ -143,8 +169,7 @@ public class SunriseSunsetUtility {
 		}
 		BigDecimal dividend = BigDecimal.valueOf(offset).subtract(
 				getBaseLongitudeHour());
-		BigDecimal addend = divideBy(dividend,
-				BigDecimal.valueOf(24));
+		BigDecimal addend = divideBy(dividend, BigDecimal.valueOf(24));
 		BigDecimal longHour = getDayOfYear(date).add(addend);
 		return setScale(longHour);
 	}
@@ -155,9 +180,8 @@ public class SunriseSunsetUtility {
 	 * @return the suns mean anomaly, M, in <code>BigDecimal</code> form.
 	 */
 	protected BigDecimal getMeanAnomaly(BigDecimal longitudeHour) {
-		BigDecimal meanAnomaly = multiplyBy(
-				new BigDecimal("0.9856"), longitudeHour).subtract(
-				new BigDecimal("3.289"));
+		BigDecimal meanAnomaly = multiplyBy(new BigDecimal("0.9856"),
+				longitudeHour).subtract(new BigDecimal("3.289"));
 		return setScale(meanAnomaly);
 	}
 
@@ -172,16 +196,14 @@ public class SunriseSunsetUtility {
 	protected BigDecimal getSunTrueLongitude(BigDecimal meanAnomaly) {
 		BigDecimal sinMeanAnomaly = new BigDecimal(Math.sin(TimeUtility
 				.convertDegreesToRadians(meanAnomaly).doubleValue()));
-		BigDecimal sinDoubleMeanAnomaly = new BigDecimal(
-				Math.sin(multiplyBy(
-						convertDegreesToRadians(meanAnomaly),
-						BigDecimal.valueOf(2)).doubleValue()));
+		BigDecimal sinDoubleMeanAnomaly = new BigDecimal(Math.sin(multiplyBy(
+				convertDegreesToRadians(meanAnomaly), BigDecimal.valueOf(2))
+				.doubleValue()));
 
-		BigDecimal firstPart = meanAnomaly.add(multiplyBy(
-				sinMeanAnomaly, new BigDecimal("1.916")));
-		BigDecimal secondPart = multiplyBy(
-				sinDoubleMeanAnomaly, new BigDecimal("0.020")).add(
-				new BigDecimal("282.634"));
+		BigDecimal firstPart = meanAnomaly.add(multiplyBy(sinMeanAnomaly,
+				new BigDecimal("1.916")));
+		BigDecimal secondPart = multiplyBy(sinDoubleMeanAnomaly,
+				new BigDecimal("0.020")).add(new BigDecimal("282.634"));
 		BigDecimal trueLongitude = firstPart.add(secondPart);
 
 		if (trueLongitude.doubleValue() > 360) {
@@ -204,8 +226,7 @@ public class SunriseSunsetUtility {
 		BigDecimal tanL = new BigDecimal(Math.tan(TimeUtility
 				.convertDegreesToRadians(sunTrueLong).doubleValue()));
 
-		BigDecimal innerParens = multiplyBy(
-				convertRadiansToDegrees(tanL),
+		BigDecimal innerParens = multiplyBy(convertRadiansToDegrees(tanL),
 				new BigDecimal("0.91764"));
 		BigDecimal rightAscension = new BigDecimal(Math.atan(TimeUtility
 				.convertDegreesToRadians(innerParens).doubleValue()));
@@ -228,8 +249,7 @@ public class SunriseSunsetUtility {
 		rightAscensionQuadrant = rightAscensionQuadrant.multiply(ninety);
 
 		BigDecimal augend = longitudeQuadrant.subtract(rightAscensionQuadrant);
-		return divideBy(rightAscension.add(augend),
-				BigDecimal.valueOf(15));
+		return divideBy(rightAscension.add(augend), BigDecimal.valueOf(15));
 	}
 
 	protected BigDecimal getCosineSunLocalHour(BigDecimal sunTrueLong,
@@ -237,30 +257,26 @@ public class SunriseSunsetUtility {
 		BigDecimal sinSunDeclination = getSinOfSunDeclination(sunTrueLong);
 		BigDecimal cosineSunDeclination = getCosineOfSunDeclination(sinSunDeclination);
 
-		BigDecimal zenithInRads = TimeUtility
-				.convertDegreesToRadians(zenith.degrees());
+		BigDecimal zenithInRads = TimeUtility.convertDegreesToRadians(zenith
+				.degrees());
 		BigDecimal cosineZenith = BigDecimal.valueOf(Math.cos(zenithInRads
 				.doubleValue()));
-		BigDecimal sinLatitude = BigDecimal
-				.valueOf(Math.sin(convertDegreesToRadians(
-						latitude).doubleValue()));
-		BigDecimal cosLatitude = BigDecimal
-				.valueOf(Math.cos(convertDegreesToRadians(
-						latitude).doubleValue()));
+		BigDecimal sinLatitude = BigDecimal.valueOf(Math
+				.sin(convertDegreesToRadians(latitude).doubleValue()));
+		BigDecimal cosLatitude = BigDecimal.valueOf(Math
+				.cos(convertDegreesToRadians(latitude).doubleValue()));
 
 		BigDecimal sinDeclinationTimesSinLat = sinSunDeclination
 				.multiply(sinLatitude);
 		BigDecimal dividend = cosineZenith.subtract(sinDeclinationTimesSinLat);
 		BigDecimal divisor = cosineSunDeclination.multiply(cosLatitude);
 
-		return setScale(divideBy(dividend,
-				divisor));
+		return setScale(divideBy(dividend, divisor));
 	}
 
 	protected BigDecimal getSinOfSunDeclination(BigDecimal sunTrueLong) {
 		BigDecimal sinTrueLongitude = BigDecimal.valueOf(Math
-				.sin(convertDegreesToRadians(sunTrueLong)
-						.doubleValue()));
+				.sin(convertDegreesToRadians(sunTrueLong).doubleValue()));
 		BigDecimal sinOfDeclination = sinTrueLongitude.multiply(new BigDecimal(
 				"0.39782"));
 		return setScale(sinOfDeclination);

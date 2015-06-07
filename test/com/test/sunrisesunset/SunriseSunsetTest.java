@@ -7,7 +7,6 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sunrisesunset.api.Location;
 import com.sunrisesunset.api.SunriseSunset;
 
 public class SunriseSunsetTest extends BaseTestCase {
@@ -17,7 +16,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	public void setup() {
 		// November 1, 2008
 		super.setup(10, 1, 2008);
-		calc = new SunriseSunset("America/New_York", null, null);
+		calc = new SunriseSunset("America/New_York", "39.9937", "-75.7850");
 	}
 
 	@Test
@@ -71,8 +70,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 
 	@Test
 	public void testSpecificDateLocationAndTimezone() {
-		Location loc = new Location("55.03", "82.91");
-		SunriseSunset calculator = new SunriseSunset("GMT", null, null);
+		SunriseSunset calculator = new SunriseSunset("GMT", "55.03", "82.91");
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2012, 4, 7);
@@ -92,8 +90,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 
 	@Test
 	public void testNonIntegerTimezoneOffset() {
-		Location loc = new Location("22.56", "88.36");
-		SunriseSunset calculator = new SunriseSunset("Asia/Kolkata", null, null);
+		SunriseSunset calculator = new SunriseSunset("Asia/Kolkata", "22.56", "88.36");
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2014, 12, 15);
