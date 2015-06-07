@@ -5,6 +5,7 @@ import static com.sunrisesunset.api.Twilight.CIVIL;
 import static com.sunrisesunset.api.Twilight.NAUTICAL;
 import static com.sunrisesunset.api.Twilight.OFFICIAL;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -12,18 +13,21 @@ import com.sunrisesunset.util.SunsetSunriseUtility;
 
 public class SunriseSunset {
 
-	protected Location location;
+	protected BigDecimal latitude;
+	protected BigDecimal longitude;
 	
 	protected SunsetSunriseUtility solarEvent;
 	
-	public SunriseSunset(Location location, String timeZoneIdentifier) {
-		this.location = location;
-		this.solarEvent = new SunsetSunriseUtility(location, timeZoneIdentifier);
+	public SunriseSunset(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.solarEvent = new SunsetSunriseUtility(timeZoneIdentifier, latitude, longitude);
 	}
 	
-	public SunriseSunset(Location location, TimeZone timeZone) {
-		this.location = location;
-		this.solarEvent = new SunsetSunriseUtility(location, timeZone);
+	public SunriseSunset(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.solarEvent = new SunsetSunriseUtility(timeZone, latitude, longitude);
 	}
 	
 	public String getAstronomicalSunriseForDate(Calendar date) {
@@ -91,14 +95,18 @@ public class SunriseSunset {
 	}
 	
 	public static Calendar getSunrise(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-		return new SunsetSunriseUtility(new Location(latitude, longitude), timeZone).computeSunriseCalendar(new Twilight(90 - degrees), date);
+		return new SunsetSunriseUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunriseCalendar(new Twilight(90 - degrees), date);
 	}
 	
 	public static Calendar getSunset(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-        return new SunsetSunriseUtility(new Location(latitude, longitude), timeZone).computeSunsetCalendar(new Twilight(90 - degrees), date);
+        return new SunsetSunriseUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunsetCalendar(new Twilight(90 - degrees), date);
     }
 	
-	public Location getLocation() {
-		return location;
+	public BigDecimal getLatitude() {
+		return latitude;
+	}
+	
+	public BigDecimal getLongitude() {
+		return longitude;
 	}
 }

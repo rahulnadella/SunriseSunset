@@ -15,7 +15,7 @@ public class SimpleTest {
 	public void simple()
 	{
 		Location location = new Location("40.7141667", "-74.0063889");
-		SunriseSunset sunriseSunset = new SunriseSunset(location, "America/New_York");
+		SunriseSunset sunriseSunset = new SunriseSunset("America/New_York", null, null);
 		
 		String officalSunrise = sunriseSunset.getOfficialSunriseForDate(Calendar.getInstance());
 		Calendar officalSunset = sunriseSunset.getOfficialSunsetCalendarForDate(Calendar.getInstance());

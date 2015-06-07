@@ -13,21 +13,23 @@ import java.math.RoundingMode;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import com.sunrisesunset.api.Location;
 import com.sunrisesunset.api.Twilight;
 
 public class SunsetSunriseUtility {
 
-	protected final Location location;
+	protected final BigDecimal latitude;
+	protected final BigDecimal longitude;
 	protected final TimeZone timeZone;
 
-	public SunsetSunriseUtility(Location location, String timeZoneIdentifier) {
-		this.location = location;
+	public SunsetSunriseUtility(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 	}
 
-	public SunsetSunriseUtility(Location location, TimeZone timeZone) {
-		this.location = location;
+	public SunsetSunriseUtility(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.timeZone = timeZone;
 	}
 
@@ -125,7 +127,7 @@ public class SunsetSunriseUtility {
 	 *         (deg/hour), in <code>BigDecimal</code> form.
 	 */
 	protected BigDecimal getBaseLongitudeHour() {
-		return divideBy(location.getLongitude(),
+		return divideBy(longitude,
 				BigDecimal.valueOf(15));
 	}
 
@@ -241,10 +243,10 @@ public class SunsetSunriseUtility {
 				.doubleValue()));
 		BigDecimal sinLatitude = BigDecimal
 				.valueOf(Math.sin(convertDegreesToRadians(
-						location.getLatitude()).doubleValue()));
+						latitude).doubleValue()));
 		BigDecimal cosLatitude = BigDecimal
 				.valueOf(Math.cos(convertDegreesToRadians(
-						location.getLatitude()).doubleValue()));
+						latitude).doubleValue()));
 
 		BigDecimal sinDeclinationTimesSinLat = sinSunDeclination
 				.multiply(sinLatitude);

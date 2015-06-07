@@ -3,6 +3,8 @@ package com.sunrisesunset.api;
 import java.math.BigDecimal;
 
 /**
+ * A relative location is described as a displacement from another site.
+ * 
  * The {@link Location} class stores the latitude and longitude of a specific
  * location.
  * 
