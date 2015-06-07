@@ -229,54 +229,191 @@ public class SunriseSunset {
 		return sunrisesunset.computeSunsetCalendar(ASTRONOMICAL, date);
 	}
 
+	/**
+	 * Returns the nautical twilight associated to sunrise occurs when the
+	 * geometrical center of the Sun is between 6 degrees and 12 degrees below
+	 * the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            nautical sunrise for.
+	 * @return The nautical sunrise time in HH:MM (24-hour clock) form.
+	 */
 	public String getNauticalSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(NAUTICAL, date);
 	}
 
+	/**
+	 * Returns the nautical twilight associated to sunrise occurs when the
+	 * geometrical center of the Sun is between 6 degrees and 12 degrees below
+	 * the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            nautical sunrise for.
+	 * @return The nautical sunrise time as a {@code Calendar}
+	 */
 	public Calendar getNauticalSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(NAUTICAL, date);
 	}
 
+	/**
+	 * Returns the nautical twilight associated to sunset occurs when the
+	 * geometrical center of the Sun is between 6 degrees and 12 degrees below
+	 * the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            nautical sunset for.
+	 * @return The nautical sunset time in HH:MM (24-hour clock) form.
+	 */
 	public String getNauticalSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(NAUTICAL, date);
 	}
 
+	/**
+	 * Returns the nautical twilight associated to sunset occurs when the
+	 * geometrical center of the Sun is between 6 degrees and 12 degrees below
+	 * the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            nautical sunset for.
+	 * @return The nautical sunset time as a {@code Calendar}
+	 */
 	public Calendar getNauticalSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(NAUTICAL, date);
 	}
 
+	/**
+	 * Returns the civil twilight associated to sunrise occurs when the Sun is
+	 * between 0 degrees and 6 degrees below the horizon. In the morning, civil
+	 * twilight begins when the Sun is 6 degrees below the horizon and ends at
+	 * sunrise. In the evening, it begins at sunset and ends when the Sun
+	 * reaches 6 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            civil sunrise for.
+	 * @return The civil sunrise time in HH:MM (24-hour clock) form.
+	 */
 	public String getCivilSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(CIVIL, date);
 	}
 
+	/**
+	 * Returns the civil twilight associated to sunrise occurs when the Sun is
+	 * between 0 degrees and 6 degrees below the horizon. In the morning, civil
+	 * twilight begins when the Sun is 6 degrees below the horizon and ends at
+	 * sunrise. In the evening, it begins at sunset and ends when the Sun
+	 * reaches 6 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            civil sunrise for.
+	 * @return The civil sunrise time as a {@code Calendar}
+	 */
 	public Calendar getCivilSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(CIVIL, date);
 	}
 
+	/**
+	 * Returns the civil twilight associated to sunset occurs when the Sun is
+	 * between 0 degrees and 6 degrees below the horizon. In the morning, civil
+	 * twilight begins when the Sun is 6 degrees below the horizon and ends at
+	 * sunrise. In the evening, it begins at sunset and ends when the Sun
+	 * reaches 6 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            civil sunset for.
+	 * @return The civil sunset time in HH:MM (24-hour clock) form.
+	 */
 	public String getCivilSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(CIVIL, date);
 	}
 
+	/**
+	 * Returns the civil twilight associated to sunset occurs when the Sun is
+	 * between 0 degrees and 6 degrees below the horizon. In the morning, civil
+	 * twilight begins when the Sun is 6 degrees below the horizon and ends at
+	 * sunrise. In the evening, it begins at sunset and ends when the Sun
+	 * reaches 6 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            civil sunset for.
+	 * @return The civil sunset time as a {@code Calendar}
+	 */
 	public Calendar getCivilSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(CIVIL, date);
 	}
 
+	/**
+	 * Returns the official sunrise (90deg 50', 90.8333deg) for the given date.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunrise for.
+	 * @return The official sunrise time in HH:MM (24-hour clock) form.
+	 */
 	public String getOfficialSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(OFFICIAL, date);
 	}
 
+	/**
+	 * Returns the official sunrise (90deg 50', 90.8333deg) for the given date.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunrise for.
+	 * @return The official sunrise time in HH:MM (24-hour clock) form.
+	 */
 	public Calendar getOfficialSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(OFFICIAL, date);
 	}
 
+	/**
+	 * Returns the official sunset (90deg 50', 90.8333deg) for the given date.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunset for.
+	 * @return The official sunset time in HH:MM (24-hour clock) form.
+	 */
 	public String getOfficialSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(OFFICIAL, date);
 	}
 
+	/**
+	 * Returns the official sunset (90deg 50', 90.8333deg) for the given date.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunset for.
+	 * @return The official sunset time as a {@code Calendar}
+	 */
 	public Calendar getOfficialSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(OFFICIAL, date);
 	}
 
+	/**
+	 * Computes the sunrise for an arbitrary declination.
+	 * 
+	 * @param latitude
+	 *            Coordinates for the location to compute the sunrise
+	 * @param longitude
+	 *            Coordinates for the location to compute the sunrise for.
+	 * @param timeZone
+	 *            {@code TimeZone} to compute the sunrise times in.
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunrise for.
+	 * @param degrees
+	 *            Angle under the horizon for which to compute sunrise. For
+	 *            example, "civil sunrise" corresponds to 6 degrees.
+	 * @return the requested sunrise time as a {@code Calendar} object.
+	 */
 	public static Calendar getSunrise(double latitude, double longitude,
 			TimeZone timeZone, Calendar date, double degrees) {
 		return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude),
@@ -284,6 +421,23 @@ public class SunriseSunset {
 				90 - degrees), date);
 	}
 
+	/**
+	 * Computes the sunset for an arbitrary declination.
+	 * 
+	 * @param latitude
+	 *            Coordinates for the location to compute the sunset
+	 * @param longitude
+	 *            Coordinates for the location to compute the sunset for.
+	 * @param timeZone
+	 *            {@code TimeZone} to compute the sunset times in.
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            official sunset for.
+	 * @param degrees
+	 *            Angle under the horizon for which to compute sunset. For
+	 *            example, "civil sunset" corresponds to 6 degrees.
+	 * @return the requested sunset time as a {@code Calendar} object.
+	 */
 	public static Calendar getSunset(double latitude, double longitude,
 			TimeZone timeZone, Calendar date, double degrees) {
 		return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude),
@@ -291,10 +445,20 @@ public class SunriseSunset {
 				90 - degrees), date);
 	}
 
+	/**
+	 * The latitude of the specific location
+	 * 
+	 * @return The latitude of the location
+	 */
 	public BigDecimal getLatitude() {
 		return latitude;
 	}
 
+	/**
+	 * The longitude of the specific location
+	 * 
+	 * @return The longitude of the location
+	 */
 	public BigDecimal getLongitude() {
 		return longitude;
 	}
