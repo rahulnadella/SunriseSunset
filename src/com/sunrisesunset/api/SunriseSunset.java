@@ -9,25 +9,25 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import com.sunrisesunset.util.SunsetSunriseUtility;
+import com.sunrisesunset.util.SunriseSunsetUtility;
 
 public class SunriseSunset {
 
 	protected BigDecimal latitude;
 	protected BigDecimal longitude;
 	
-	protected SunsetSunriseUtility solarEvent;
+	protected SunriseSunsetUtility solarEvent;
 	
 	public SunriseSunset(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.solarEvent = new SunsetSunriseUtility(timeZoneIdentifier, latitude, longitude);
+		this.solarEvent = new SunriseSunsetUtility(timeZoneIdentifier, latitude, longitude);
 	}
 	
 	public SunriseSunset(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.solarEvent = new SunsetSunriseUtility(timeZone, latitude, longitude);
+		this.solarEvent = new SunriseSunsetUtility(timeZone, latitude, longitude);
 	}
 	
 	public String getAstronomicalSunriseForDate(Calendar date) {
@@ -95,11 +95,11 @@ public class SunriseSunset {
 	}
 	
 	public static Calendar getSunrise(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-		return new SunsetSunriseUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunriseCalendar(new Twilight(90 - degrees), date);
+		return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunriseCalendar(new Twilight(90 - degrees), date);
 	}
 	
 	public static Calendar getSunset(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-        return new SunsetSunriseUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunsetCalendar(new Twilight(90 - degrees), date);
+        return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude), new BigDecimal(longitude)).computeSunsetCalendar(new Twilight(90 - degrees), date);
     }
 	
 	public BigDecimal getLatitude() {

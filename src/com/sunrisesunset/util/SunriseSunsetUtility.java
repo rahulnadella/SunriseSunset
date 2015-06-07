@@ -15,19 +15,19 @@ import java.util.TimeZone;
 
 import com.sunrisesunset.api.Twilight;
 
-public class SunsetSunriseUtility {
+public class SunriseSunsetUtility {
 
 	protected final BigDecimal latitude;
 	protected final BigDecimal longitude;
 	protected final TimeZone timeZone;
 
-	public SunsetSunriseUtility(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
+	public SunriseSunsetUtility(String timeZoneIdentifier, BigDecimal latitude, BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 	}
 
-	public SunsetSunriseUtility(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
+	public SunriseSunsetUtility(TimeZone timeZone, BigDecimal latitude, BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeZone = timeZone;
