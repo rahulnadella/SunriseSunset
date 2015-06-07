@@ -16,8 +16,8 @@ public class SimpleTest {
 	{
 		SunriseSunset sunriseSunset = new SunriseSunset("America/New_York", "40.7141667", "-74.0063889");
 		
-		String officalSunrise = sunriseSunset.getOfficialSunriseForDate(Calendar.getInstance());
-		Calendar officalSunset = sunriseSunset.getOfficialSunsetCalendarForDate(Calendar.getInstance());
+		String officalSunrise = sunriseSunset.getOfficialSunrise(Calendar.getInstance());
+		Calendar officalSunset = sunriseSunset.getOfficialSunsetCalendar(Calendar.getInstance());
 		
 		assertEquals("05:25", officalSunrise);
 		assertNotNull(officalSunset);

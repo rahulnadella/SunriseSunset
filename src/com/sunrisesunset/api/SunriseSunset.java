@@ -89,8 +89,7 @@ public class SunriseSunset {
 
 	/**
 	 * The {@link SunriseSunset} initialization based on time zone
-	 * {@code String}, latitude {@code Double}, and longitude
-	 * {@code Double}
+	 * {@code String}, latitude {@code Double}, and longitude {@code Double}
 	 * 
 	 * @param timeZoneIdentifier
 	 *            A {@code String} based on the time zone is a region that
@@ -113,8 +112,7 @@ public class SunriseSunset {
 
 	/**
 	 * The {@link SunriseSunset} initialization based on time zone
-	 * {@code TimeZone}, latitude {@code Double}, and longitude
-	 * {@code Double}
+	 * {@code TimeZone}, latitude {@code Double}, and longitude {@code Double}
 	 * 
 	 * @param timeZoneIdentifier
 	 *            A {@code TimeZone} based on the time zone is a region that
@@ -136,8 +134,7 @@ public class SunriseSunset {
 
 	/**
 	 * The {@link SunriseSunset} initialization based on time zone
-	 * {@code String}, latitude {@code String}, and longitude
-	 * {@code String}
+	 * {@code String}, latitude {@code String}, and longitude {@code String}
 	 * 
 	 * @param timeZoneIdentifier
 	 *            A {@code String} based on the time zone is a region that
@@ -160,8 +157,7 @@ public class SunriseSunset {
 
 	/**
 	 * The {@link SunriseSunset} initialization based on time zone
-	 * {@code TimeZone}, latitude {@code String}, and longitude
-	 * {@code String}
+	 * {@code TimeZone}, latitude {@code String}, and longitude {@code String}
 	 * 
 	 * @param timeZoneIdentifier
 	 *            A {@code TimeZone} based on the time zone is a region that
@@ -181,67 +177,103 @@ public class SunriseSunset {
 				longitude);
 	}
 
-	public String getAstronomicalSunriseForDate(Calendar date) {
+	/**
+	 * Returns the astronomical twilight associated to sunrise which occurs when
+	 * the Sun is between 12 degrees and 18 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            astronomical sunrise for.
+	 * @return The astronomical sunrise time in HH:MM (24-hour clock) form.
+	 */
+	public String getAstronomicalSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(ASTRONOMICAL, date);
 	}
 
-	public Calendar getAstronomicalSunriseCalendarForDate(Calendar date) {
+	/**
+	 * Returns the astronomical twilight associated to sunrise which occurs when
+	 * the Sun is between 12 degrees and 18 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            astronomical sunrise for.
+	 * @return The astronomical sunrise time as a {@code Calendar}
+	 */
+	public Calendar getAstronomicalSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(ASTRONOMICAL, date);
 	}
 
-	public String getAstronomicalSunsetForDate(Calendar date) {
+	/**
+	 * Returns the astronomical twilight associated to sunset which occurs when
+	 * the Sun is between 12 degrees and 18 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            astronomical sunrise for.
+	 * @return The astronomical sunset time in HH:MM (24-hour clock) form.
+	 */
+	public String getAstronomicalSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(ASTRONOMICAL, date);
 	}
 
-	public Calendar getAstronomicalSunsetCalendarForDate(Calendar date) {
+	/**
+	 * Returns the astronomical twilight associated to sunset which occurs when
+	 * the Sun is between 12 degrees and 18 degrees below the horizon.
+	 * 
+	 * @param date
+	 *            {@code Calendar} object containing the date to compute the
+	 *            astronomical sunrise for.
+	 * @return The astronomical sunset time as a {@code Calendar}
+	 */
+	public Calendar getAstronomicalSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(ASTRONOMICAL, date);
 	}
 
-	public String getNauticalSunriseForDate(Calendar date) {
+	public String getNauticalSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(NAUTICAL, date);
 	}
 
-	public Calendar getNauticalSunriseCalendarForDate(Calendar date) {
+	public Calendar getNauticalSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(NAUTICAL, date);
 	}
 
-	public String getNauticalSunsetForDate(Calendar date) {
+	public String getNauticalSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(NAUTICAL, date);
 	}
 
-	public Calendar getNauticalSunsetCalendarForDate(Calendar date) {
+	public Calendar getNauticalSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(NAUTICAL, date);
 	}
 
-	public String getCivilSunriseForDate(Calendar date) {
+	public String getCivilSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(CIVIL, date);
 	}
 
-	public Calendar getCivilSunriseCalendarForDate(Calendar date) {
+	public Calendar getCivilSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(CIVIL, date);
 	}
 
-	public String getCivilSunsetForDate(Calendar date) {
+	public String getCivilSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(CIVIL, date);
 	}
 
-	public Calendar getCivilSunsetCalendarForDate(Calendar date) {
+	public Calendar getCivilSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(CIVIL, date);
 	}
 
-	public String getOfficialSunriseForDate(Calendar date) {
+	public String getOfficialSunrise(Calendar date) {
 		return sunrisesunset.computeSunriseTime(OFFICIAL, date);
 	}
 
-	public Calendar getOfficialSunriseCalendarForDate(Calendar date) {
+	public Calendar getOfficialSunriseCalendar(Calendar date) {
 		return sunrisesunset.computeSunriseCalendar(OFFICIAL, date);
 	}
 
-	public String getOfficialSunsetForDate(Calendar date) {
+	public String getOfficialSunset(Calendar date) {
 		return sunrisesunset.computeSunsetTime(OFFICIAL, date);
 	}
 
-	public Calendar getOfficialSunsetCalendarForDate(Calendar date) {
+	public Calendar getOfficialSunsetCalendar(Calendar date) {
 		return sunrisesunset.computeSunsetCalendar(OFFICIAL, date);
 	}
 

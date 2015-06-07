@@ -22,49 +22,49 @@ public class SunriseSunsetTest extends BaseTestCase {
 	@Test
 	public void testComputeAstronomicalSunrise() {
 		assertTimeEquals("06:01",
-				calc.getAstronomicalSunriseForDate(eventDate), eventDate
+				calc.getAstronomicalSunrise(eventDate), eventDate
 						.getTime().toString());
 	}
 
 	@Test
 	public void testComputeAstronomicalSunset() {
-		assertTimeEquals("19:32", calc.getAstronomicalSunsetForDate(eventDate),
+		assertTimeEquals("19:32", calc.getAstronomicalSunset(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeNauticalSunrise() {
-		assertTimeEquals("06:33", calc.getNauticalSunriseForDate(eventDate),
+		assertTimeEquals("06:33", calc.getNauticalSunrise(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeNauticalSunset() {
-		assertTimeEquals("19:00", calc.getNauticalSunsetForDate(eventDate),
+		assertTimeEquals("19:00", calc.getNauticalSunset(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeCivilSunrise() {
-		assertTimeEquals("07:05", calc.getCivilSunriseForDate(eventDate),
+		assertTimeEquals("07:05", calc.getCivilSunrise(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeCivilSunset() {
-		assertTimeEquals("18:28", calc.getCivilSunsetForDate(eventDate),
+		assertTimeEquals("18:28", calc.getCivilSunset(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeOfficialSunrise() {
-		assertTimeEquals("07:33", calc.getOfficialSunriseForDate(eventDate),
+		assertTimeEquals("07:33", calc.getOfficialSunrise(eventDate),
 				eventDate.getTime().toString());
 	}
 
 	@Test
 	public void testComputeOfficialSunset() {
-		assertTimeEquals("18:00", calc.getOfficialSunsetForDate(eventDate),
+		assertTimeEquals("18:00", calc.getOfficialSunset(eventDate),
 				eventDate.getTime().toString());
 	}
 
@@ -76,11 +76,11 @@ public class SunriseSunsetTest extends BaseTestCase {
 		calendar.set(2012, 4, 7);
 
 		String officialSunriseForDate = calculator
-				.getOfficialSunriseForDate(calendar);
+				.getOfficialSunrise(calendar);
 		assertEquals("22:35", officialSunriseForDate);
 
 		Calendar officialSunriseCalendarForDate = calculator
-				.getOfficialSunriseCalendarForDate(calendar);
+				.getOfficialSunriseCalendar(calendar);
 		assertEquals(22,
 				officialSunriseCalendarForDate.get(Calendar.HOUR_OF_DAY));
 		assertEquals(35, officialSunriseCalendarForDate.get(Calendar.MINUTE));
@@ -96,7 +96,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 		calendar.set(2014, 12, 15);
 
 		String officialSunriseForDate = calculator
-				.getOfficialSunriseForDate(calendar);
+				.getOfficialSunrise(calendar);
 		assertEquals("06:19", officialSunriseForDate);
 	}
 }
