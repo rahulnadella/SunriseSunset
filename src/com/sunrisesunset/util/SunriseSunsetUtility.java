@@ -15,12 +15,32 @@ import java.util.TimeZone;
 
 import com.sunrisesunset.api.Twilight;
 
+/**
+ * The {@link SunriseSunsetUtility} class contains several helper methods to
+ * compute the values of the sunrise/sunset based on the time zone, latitude,
+ * and longitude.
+ * 
+ * @version 1.0
+ */
 public class SunriseSunsetUtility {
-
+	/* Accessor values for calculating the sunrise/sunset */
 	protected final BigDecimal latitude;
 	protected final BigDecimal longitude;
 	protected final TimeZone timeZone;
 
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the time zone of the specific latitude and longitude. For
+	 *            example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code BigDecimal} of a place north or
+	 *            south of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code BigDecimal} of a place east or
+	 *            west of the earth's equator
+	 */
 	public SunriseSunsetUtility(String timeZoneIdentifier, BigDecimal latitude,
 			BigDecimal longitude) {
 		this.latitude = latitude;
@@ -28,6 +48,19 @@ public class SunriseSunsetUtility {
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 	}
 
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the {@code TimeZone} of the specific latitude and longitude.
+	 *            For example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code BigDecimal} of a place north or
+	 *            south of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code BigDecimal} of a place east or
+	 *            west of the earth's equator
+	 */
 	public SunriseSunsetUtility(TimeZone timeZone, BigDecimal latitude,
 			BigDecimal longitude) {
 		this.latitude = latitude;
@@ -35,6 +68,19 @@ public class SunriseSunsetUtility {
 		this.timeZone = timeZone;
 	}
 
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the time zone of the specific latitude and longitude. For
+	 *            example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code Double} of a place north or south
+	 *            of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code Double} of a place east or west of
+	 *            the earth's equator
+	 */
 	public SunriseSunsetUtility(String timeZoneIdentifier, Double latitude,
 			Double longitude) {
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
@@ -42,91 +88,135 @@ public class SunriseSunsetUtility {
 		this.longitude = new BigDecimal(longitude);
 	}
 
-	public SunriseSunsetUtility(TimeZone timeZone, Double latitude, Double longitude) {
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the {@code TimeZone} of the specific latitude and longitude.
+	 *            For example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code Double} of a place north or south
+	 *            of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code Double} of a place east or west of
+	 *            the earth's equator
+	 */
+	public SunriseSunsetUtility(TimeZone timeZone, Double latitude,
+			Double longitude) {
 		this.timeZone = timeZone;
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
 	}
-	
-	public SunriseSunsetUtility(String timeZoneIdentifier, String latitude, String longitude) {
+
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the time zone of the specific latitude and longitude. For
+	 *            example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code String} of a place north or south
+	 *            of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code String} of a place east or west of
+	 *            the earth's equator
+	 */
+	public SunriseSunsetUtility(String timeZoneIdentifier, String latitude,
+			String longitude) {
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
 	}
-	
-	public SunriseSunsetUtility(TimeZone timeZone, String latitude, String longitude) {
+
+	/**
+	 * Creates a {@code SunriseSunsetUtility} object based on the parameters
+	 * 
+	 * @param timeZoneIdentifier
+	 *            the {@code TimeZone} of the specific latitude and longitude.
+	 *            For example, "America/New_York".
+	 * @param latitude
+	 *            the angular distance {@code String} of a place north or south
+	 *            of the earth's equator
+	 * @param longitude
+	 *            the angular distance {@code String} of a place east or west of
+	 *            the earth's equator
+	 */
+	public SunriseSunsetUtility(TimeZone timeZone, String latitude,
+			String longitude) {
 		this.timeZone = timeZone;
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
 	}
-	
+
 	/**
-	 * Computes the sunrise time for the given zenith at the given date.
+	 * Computes the sunrise time for the given {@link Twilight} at the given
+	 * date.
 	 *
-	 * @param solarZenith
-	 *            <code>Zenith</code> enum corresponding to the type of sunrise
-	 *            to compute.
+	 * @param twilight
+	 *            The {@code Twilight} corresponding to the type of sunrise to
+	 *            compute.
 	 * @param date
-	 *            <code>Calendar</code> object representing the date to compute
+	 *            The {@code Calendar} object representing the date to compute
 	 *            the sunrise for.
 	 * @return the sunrise time, in HH:MM format (24-hour clock), 00:00 if the
 	 *         sun does not rise on the given date.
 	 */
-	public String computeSunriseTime(Twilight solarZenith, Calendar date) {
-		return getLocalTimeAsString(computeSolarEventTime(solarZenith, date,
-				true));
+	public String computeSunriseTime(Twilight twilight, Calendar date) {
+		return getLocalTimeAsString(computeSolarEventTime(twilight, date, true));
 	}
 
 	/**
-	 * Computes the sunrise time for the given zenith at the given date.
+	 * Computes the sunrise time for the given {@link Twilight} at the given
+	 * date.
 	 *
-	 * @param solarZenith
-	 *            <code>Zenith</code> enum corresponding to the type of sunrise
-	 *            to compute.
+	 * @param twilight
+	 *            The {@code Twilight} corresponding to the type of sunrise to
+	 *            compute.
 	 * @param date
-	 *            <code>Calendar</code> object representing the date to compute
+	 *            The {@code Calendar} object representing the date to compute
 	 *            the sunrise for.
 	 * @return the sunrise time as a calendar or null for no sunrise
 	 */
-	public Calendar computeSunriseCalendar(Twilight solarZenith, Calendar date) {
+	public Calendar computeSunriseCalendar(Twilight twilight, Calendar date) {
 		return getLocalTimeAsCalendar(
-				computeSolarEventTime(solarZenith, date, true), date);
+				computeSolarEventTime(twilight, date, true), date);
 	}
 
 	/**
-	 * Computes the sunset time for the given zenith at the given date.
+	 * Computes the sunset time for the given {@link Twilight} at the given
+	 * date.
 	 *
-	 * @param solarZenith
-	 *            <code>Zenith</code> enum corresponding to the type of sunset
-	 *            to compute.
+	 * @param twilight
+	 *            The {@code Twilight} corresponding to the type of sunset to
+	 *            compute.
 	 * @param date
-	 *            <code>Calendar</code> object representing the date to compute
+	 *            The {@code Calendar} object representing the date to compute
 	 *            the sunset for.
 	 * @return the sunset time, in HH:MM format (24-hour clock), 00:00 if the
 	 *         sun does not set on the given date.
 	 */
-	public String computeSunsetTime(Twilight solarZenith, Calendar date) {
-		return getLocalTimeAsString(computeSolarEventTime(solarZenith, date,
-				false));
+	public String computeSunsetTime(Twilight twilight, Calendar date) {
+		return getLocalTimeAsString(computeSolarEventTime(twilight, date, false));
 	}
 
 	/**
-	 * Computes the sunset time for the given zenith at the given date.
+	 * Computes the sunset time for the given {@link Twilight} at the given
+	 * date.
 	 *
-	 * @param solarZenith
-	 *            <code>Zenith</code> enum corresponding to the type of sunset
-	 *            to compute.
+	 * @param twilight
+	 *            The {@code Twilight} corresponding to the type of sunset to
+	 *            compute.
 	 * @param date
-	 *            <code>Calendar</code> object representing the date to compute
+	 *            The {@code Calendar} object representing the date to compute
 	 *            the sunset for.
-	 * @return the sunset time as a Calendar or null for no sunset.
+	 * @return the sunset time as a calendar or null for no sunset
 	 */
-	public Calendar computeSunsetCalendar(Twilight solarZenith, Calendar date) {
+	public Calendar computeSunsetCalendar(Twilight twilight, Calendar date) {
 		return getLocalTimeAsCalendar(
-				computeSolarEventTime(solarZenith, date, false), date);
+				computeSolarEventTime(twilight, date, false), date);
 	}
 
-	protected BigDecimal computeSolarEventTime(Twilight solarZenith,
+	private BigDecimal computeSolarEventTime(Twilight solarZenith,
 			Calendar date, boolean isSunrise) {
 		date.setTimeZone(this.timeZone);
 		BigDecimal longitudeHour = getLongitudeHour(date, isSunrise);
@@ -147,22 +237,11 @@ public class SunriseSunsetUtility {
 		return localTime;
 	}
 
-	/**
-	 * Computes the base longitude hour, lngHour in the algorithm.
-	 *
-	 * @return the longitude of the location of the solar event divided by 15
-	 *         (deg/hour), in <code>BigDecimal</code> form.
-	 */
-	protected BigDecimal getBaseLongitudeHour() {
+	private BigDecimal getBaseLongitudeHour() {
 		return divideBy(longitude, BigDecimal.valueOf(15));
 	}
 
-	/**
-	 * Computes the longitude time, t in the algorithm.
-	 *
-	 * @return longitudinal time in <code>BigDecimal</code> form.
-	 */
-	protected BigDecimal getLongitudeHour(Calendar date, Boolean isSunrise) {
+	private BigDecimal getLongitudeHour(Calendar date, Boolean isSunrise) {
 		int offset = 18;
 		if (isSunrise) {
 			offset = 6;
@@ -174,26 +253,13 @@ public class SunriseSunsetUtility {
 		return setScale(longHour);
 	}
 
-	/**
-	 * Computes the mean anomaly of the Sun, M in the algorithm.
-	 *
-	 * @return the suns mean anomaly, M, in <code>BigDecimal</code> form.
-	 */
-	protected BigDecimal getMeanAnomaly(BigDecimal longitudeHour) {
+	private BigDecimal getMeanAnomaly(BigDecimal longitudeHour) {
 		BigDecimal meanAnomaly = multiplyBy(new BigDecimal("0.9856"),
 				longitudeHour).subtract(new BigDecimal("3.289"));
 		return setScale(meanAnomaly);
 	}
 
-	/**
-	 * Computes the true longitude of the sun, L in the algorithm, at the given
-	 * location, adjusted to fit in the range [0-360].
-	 *
-	 * @param meanAnomaly
-	 *            the suns mean anomaly.
-	 * @return the suns true longitude, in <code>BigDecimal</code> form.
-	 */
-	protected BigDecimal getSunTrueLongitude(BigDecimal meanAnomaly) {
+	private BigDecimal getSunTrueLongitude(BigDecimal meanAnomaly) {
 		BigDecimal sinMeanAnomaly = new BigDecimal(Math.sin(MathUtility
 				.convertDegreesToRadians(meanAnomaly).doubleValue()));
 		BigDecimal sinDoubleMeanAnomaly = new BigDecimal(Math.sin(multiplyBy(
@@ -212,17 +278,7 @@ public class SunriseSunsetUtility {
 		return setScale(trueLongitude);
 	}
 
-	/**
-	 * Computes the suns right ascension, RA in the algorithm, adjusting for the
-	 * quadrant of L and turning it into degree-hours. Will be in the range
-	 * [0,360].
-	 *
-	 * @param sunTrueLong
-	 *            Suns true longitude, in <code>BigDecimal</code>
-	 * @return suns right ascension in degree-hours, in <code>BigDecimal</code>
-	 *         form.
-	 */
-	protected BigDecimal getRightAscension(BigDecimal sunTrueLong) {
+	private BigDecimal getRightAscension(BigDecimal sunTrueLong) {
 		BigDecimal tanL = new BigDecimal(Math.tan(MathUtility
 				.convertDegreesToRadians(sunTrueLong).doubleValue()));
 
@@ -252,7 +308,7 @@ public class SunriseSunsetUtility {
 		return divideBy(rightAscension.add(augend), BigDecimal.valueOf(15));
 	}
 
-	protected BigDecimal getCosineSunLocalHour(BigDecimal sunTrueLong,
+	private BigDecimal getCosineSunLocalHour(BigDecimal sunTrueLong,
 			Twilight zenith) {
 		BigDecimal sinSunDeclination = getSinOfSunDeclination(sunTrueLong);
 		BigDecimal cosineSunDeclination = getCosineOfSunDeclination(sinSunDeclination);
@@ -274,7 +330,7 @@ public class SunriseSunsetUtility {
 		return setScale(divideBy(dividend, divisor));
 	}
 
-	protected BigDecimal getSinOfSunDeclination(BigDecimal sunTrueLong) {
+	private BigDecimal getSinOfSunDeclination(BigDecimal sunTrueLong) {
 		BigDecimal sinTrueLongitude = BigDecimal.valueOf(Math
 				.sin(convertDegreesToRadians(sunTrueLong).doubleValue()));
 		BigDecimal sinOfDeclination = sinTrueLongitude.multiply(new BigDecimal(
@@ -282,7 +338,7 @@ public class SunriseSunsetUtility {
 		return setScale(sinOfDeclination);
 	}
 
-	protected BigDecimal getCosineOfSunDeclination(BigDecimal sinSunDeclination) {
+	private BigDecimal getCosineOfSunDeclination(BigDecimal sinSunDeclination) {
 		BigDecimal arcSinOfSinDeclination = BigDecimal.valueOf(Math
 				.asin(sinSunDeclination.doubleValue()));
 		BigDecimal cosDeclination = BigDecimal.valueOf(Math
@@ -290,7 +346,7 @@ public class SunriseSunsetUtility {
 		return setScale(cosDeclination);
 	}
 
-	protected BigDecimal getSunLocalHour(BigDecimal cosineSunLocalHour,
+	private BigDecimal getSunLocalHour(BigDecimal cosineSunLocalHour,
 			Boolean isSunrise) {
 		BigDecimal arcCosineOfCosineHourAngle = MathUtility
 				.getArcCosineFor(cosineSunLocalHour);
@@ -302,7 +358,7 @@ public class SunriseSunsetUtility {
 		return divideBy(localHour, BigDecimal.valueOf(15));
 	}
 
-	protected BigDecimal getLocalMeanTime(BigDecimal sunTrueLong,
+	private BigDecimal getLocalMeanTime(BigDecimal sunTrueLong,
 			BigDecimal longitudeHour, BigDecimal sunLocalHour) {
 		BigDecimal rightAscension = this.getRightAscension(sunTrueLong);
 		BigDecimal innerParens = longitudeHour.multiply(new BigDecimal(
@@ -319,14 +375,14 @@ public class SunriseSunsetUtility {
 		return setScale(localMeanTime);
 	}
 
-	protected BigDecimal getLocalTime(BigDecimal localMeanTime, Calendar date) {
+	private BigDecimal getLocalTime(BigDecimal localMeanTime, Calendar date) {
 		BigDecimal utcTime = localMeanTime.subtract(getBaseLongitudeHour());
 		BigDecimal utcOffSet = getUTCOffset(date);
 		BigDecimal utcOffSetTime = utcTime.add(utcOffSet);
 		return adjustForDST(utcOffSetTime, date);
 	}
 
-	protected BigDecimal adjustForDST(BigDecimal localMeanTime, Calendar date) {
+	private BigDecimal adjustForDST(BigDecimal localMeanTime, Calendar date) {
 		BigDecimal localTime = localMeanTime;
 		if (timeZone.inDaylightTime(date.getTime())) {
 			localTime = localTime.add(BigDecimal.ONE);
@@ -337,16 +393,15 @@ public class SunriseSunsetUtility {
 		return localTime;
 	}
 
-	protected String getLocalTimeAsString(BigDecimal localTimeParam) {
+	private String getLocalTimeAsString(BigDecimal localTimeParam) {
 		if (localTimeParam == null) {
 			return "99:99";
 		}
 
-		BigDecimal localTime = localTimeParam;
-		if (localTime.compareTo(BigDecimal.ZERO) == -1) {
-			localTime = localTime.add(BigDecimal.valueOf(24.0D));
+		if (localTimeParam.compareTo(BigDecimal.ZERO) == -1) {
+			localTimeParam = localTimeParam.add(BigDecimal.valueOf(24.0D));
 		}
-		String[] timeComponents = localTime.toPlainString().split("\\.");
+		String[] timeComponents = localTimeParam.toPlainString().split("\\.");
 		int hour = Integer.parseInt(timeComponents[0]);
 
 		BigDecimal minutes = new BigDecimal("0." + timeComponents[1]);
@@ -367,14 +422,12 @@ public class SunriseSunsetUtility {
 		return hourString + ":" + minuteString;
 	}
 
-	protected Calendar getLocalTimeAsCalendar(BigDecimal localTimeParam,
+	private Calendar getLocalTimeAsCalendar(BigDecimal localTimeParam,
 			Calendar date) {
 		if (localTimeParam == null) {
 			return null;
 		}
 
-		// Create a clone of the input calendar so we get locale/timezone
-		// information.
 		Calendar resultTime = (Calendar) date.clone();
 
 		BigDecimal localTime = localTimeParam;
