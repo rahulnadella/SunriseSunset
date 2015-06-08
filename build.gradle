@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'src.com.sunrisesunset.api.SunriseSunset'
+
+// tag::repositories[]
+repositories {
+	mavenCentral()
+}
+// end::repositories[]
+
+// tag::jar[]
+jar {
+	baseName = 'SunriseSunset'
+	version = '1.0'
+}
+// end::jar[]
+
+// tag::dependencies[]
+dependencies {
+}
+// end::dependencies[]
+
+// tag::wrapper[]
+task wrapper(type: Wrapper){
+	gradleVersion = '2.3'
+}
+// end::wrapper[]
+
