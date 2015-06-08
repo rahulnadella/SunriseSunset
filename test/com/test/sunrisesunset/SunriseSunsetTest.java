@@ -26,15 +26,25 @@ package com.test.sunrisesunset;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.sunrisesunset.api.SunriseSunset;
 
+/**
+ * The {@link SunriseSunsetTest} tests the implementation of the
+ * {@link SunriseSunset} class
+ * 
+ * @version 1.0
+ */
 public class SunriseSunsetTest extends BaseTestCase {
 	private SunriseSunset calc;
 
+	/**
+	 * Setup of the {@link SunriseSunsetTest}
+	 */
 	@Before
 	public void setup() {
 		// November 1, 2008
@@ -42,55 +52,81 @@ public class SunriseSunsetTest extends BaseTestCase {
 		calc = new SunriseSunset("America/New_York", "39.9937", "-75.7850");
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getAstronomicalSunrise(Calendar)}
+	 */
 	@Test
 	public void testComputeAstronomicalSunrise() {
-		assertTimeEquals("06:01",
-				calc.getAstronomicalSunrise(eventDate), eventDate
-						.getTime().toString());
+		assertTimeEquals("06:01", calc.getAstronomicalSunrise(eventDate),
+				eventDate.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getAstronomicalSunset(Calendar)}
+	 */
 	@Test
 	public void testComputeAstronomicalSunset() {
 		assertTimeEquals("19:32", calc.getAstronomicalSunset(eventDate),
 				eventDate.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getNauticalSunrise(Calendar)}
+	 */
 	@Test
 	public void testComputeNauticalSunrise() {
-		assertTimeEquals("06:33", calc.getNauticalSunrise(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("06:33", calc.getNauticalSunrise(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getNauticalSunset(Calendar)}
+	 */
 	@Test
 	public void testComputeNauticalSunset() {
-		assertTimeEquals("19:00", calc.getNauticalSunset(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("19:00", calc.getNauticalSunset(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getCivilSunrise(Calendar)}
+	 */
 	@Test
 	public void testComputeCivilSunrise() {
-		assertTimeEquals("07:05", calc.getCivilSunrise(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("07:05", calc.getCivilSunrise(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getCivilSunset(Calendar)}
+	 */
 	@Test
 	public void testComputeCivilSunset() {
-		assertTimeEquals("18:28", calc.getCivilSunset(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("18:28", calc.getCivilSunset(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getOfficialSunrise(Calendar)}
+	 */
 	@Test
 	public void testComputeOfficialSunrise() {
-		assertTimeEquals("07:33", calc.getOfficialSunrise(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("07:33", calc.getOfficialSunrise(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * {@link com.sunrisesunset.api.SunriseSunset#getOfficialSunrise(Calendar)}
+	 */
 	@Test
 	public void testComputeOfficialSunset() {
-		assertTimeEquals("18:00", calc.getOfficialSunset(eventDate),
-				eventDate.getTime().toString());
+		assertTimeEquals("18:00", calc.getOfficialSunset(eventDate), eventDate
+				.getTime().toString());
 	}
 
+	/**
+	 * Tests specific location with a different {@link TimeZone}
+	 */
 	@Test
 	public void testSpecificDateLocationAndTimezone() {
 		SunriseSunset calculator = new SunriseSunset("GMT", "55.03", "82.91");
@@ -98,8 +134,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2012, 4, 7);
 
-		String officialSunriseForDate = calculator
-				.getOfficialSunrise(calendar);
+		String officialSunriseForDate = calculator.getOfficialSunrise(calendar);
 		assertEquals("22:35", officialSunriseForDate);
 
 		Calendar officialSunriseCalendarForDate = calculator
@@ -111,15 +146,18 @@ public class SunriseSunsetTest extends BaseTestCase {
 				officialSunriseCalendarForDate.get(Calendar.DAY_OF_MONTH));
 	}
 
+	/**
+	 * Tests a {@link TimeZone} offset
+	 */
 	@Test
 	public void testNonIntegerTimezoneOffset() {
-		SunriseSunset calculator = new SunriseSunset("Asia/Kolkata", "22.56", "88.36");
+		SunriseSunset calculator = new SunriseSunset("Asia/Kolkata", "22.56",
+				"88.36");
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2014, 12, 15);
 
-		String officialSunriseForDate = calculator
-				.getOfficialSunrise(calendar);
+		String officialSunriseForDate = calculator.getOfficialSunrise(calendar);
 		assertEquals("06:19", officialSunriseForDate);
 	}
 }
