@@ -64,8 +64,8 @@ public class SunriseSunsetCalculator {
 	 *            the angular distance {@code BigDecimal} of a place east or
 	 *            west of the earth's equator
 	 */
-	public SunriseSunsetCalculator(String timeZoneIdentifier, BigDecimal latitude,
-			BigDecimal longitude) {
+	public SunriseSunsetCalculator(String timeZoneIdentifier,
+			BigDecimal latitude, BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
