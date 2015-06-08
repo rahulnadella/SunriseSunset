@@ -1,5 +1,13 @@
 ## Sunrise-Sunset [![MIT License][license-image]][license-url] [![Build Status](https://travis-ci.org/rahulnadella/SunriseSunset.svg?branch=master)](https://travis-ci.org/rahulnadella/SunriseSunset)
 
+The SunriseSunset class calculates the sunrise, sunset, and twilight times based on the user's time zone, latitude and longitude.
+
+#####Version
+> Version -> 1.0 -> Design and development of SunriseSunset library
+
+#####Build
+> Build -> Oracle JDK 8.0
+
 ###Usage
 
 
