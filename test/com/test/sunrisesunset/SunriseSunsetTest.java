@@ -28,6 +28,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -52,6 +53,15 @@ public class SunriseSunsetTest extends BaseTestCase {
 		calc = new SunriseSunset("America/New_York", "39.9937", "-75.7850");
 	}
 
+	/**
+	 * Tear down of the {@link SunriseSunsetTest}
+	 */
+	@After
+	public void tearDown()
+	{
+		super.tearDown();
+	}
+	
 	/**
 	 * {@link com.sunrisesunset.api.SunriseSunset#getAstronomicalSunrise(Calendar)}
 	 */

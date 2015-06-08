@@ -31,6 +31,12 @@ import java.util.TimeZone;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * The {@link BaseTestCase} class is the parent test class used to provide
+ * default functionality for any additional test class.
+ * 
+ * @version 1.0
+ */
 public class BaseTestCase {
 
 	protected Calendar eventDate;
@@ -48,6 +54,10 @@ public class BaseTestCase {
 		eventDate.setTimeZone(TimeZone.getTimeZone(timeZoneIdentifier));
 	}
 
+	public void tearDown() {
+		
+	}
+	
 	@Test
 	public void testTrue() {
 		assertTrue(true);
