@@ -1,4 +1,4 @@
-# Sunrise-Sunset
+## Sunrise-Sunset [![Build Status](https://travis-ci.org/rahulnadella/SunriseSunset.svg?branch=master)](https://travis-ci.org/rahulnadella/SunriseSunset)
 
 ###Usage
 
