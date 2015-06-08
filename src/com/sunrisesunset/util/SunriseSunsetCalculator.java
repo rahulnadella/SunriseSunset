@@ -39,13 +39,13 @@ import java.util.TimeZone;
 import com.sunrisesunset.api.Twilight;
 
 /**
- * The {@link SunriseSunsetUtility} class contains several helper methods to
+ * The {@link SunriseSunsetCalculator} class contains several helper methods to
  * compute the values of the sunrise/sunset based on the time zone, latitude,
  * and longitude.
  * 
  * @version 1.0
  */
-public class SunriseSunsetUtility {
+public class SunriseSunsetCalculator {
 	/* Accessor values for calculating the sunrise/sunset */
 	protected final BigDecimal latitude;
 	protected final BigDecimal longitude;
@@ -64,7 +64,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code BigDecimal} of a place east or
 	 *            west of the earth's equator
 	 */
-	public SunriseSunsetUtility(String timeZoneIdentifier, BigDecimal latitude,
+	public SunriseSunsetCalculator(String timeZoneIdentifier, BigDecimal latitude,
 			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -84,7 +84,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code BigDecimal} of a place east or
 	 *            west of the earth's equator
 	 */
-	public SunriseSunsetUtility(TimeZone timeZone, BigDecimal latitude,
+	public SunriseSunsetCalculator(TimeZone timeZone, BigDecimal latitude,
 			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -104,7 +104,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code Double} of a place east or west of
 	 *            the earth's equator
 	 */
-	public SunriseSunsetUtility(String timeZoneIdentifier, Double latitude,
+	public SunriseSunsetCalculator(String timeZoneIdentifier, Double latitude,
 			Double longitude) {
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 		this.latitude = new BigDecimal(latitude);
@@ -124,7 +124,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code Double} of a place east or west of
 	 *            the earth's equator
 	 */
-	public SunriseSunsetUtility(TimeZone timeZone, Double latitude,
+	public SunriseSunsetCalculator(TimeZone timeZone, Double latitude,
 			Double longitude) {
 		this.timeZone = timeZone;
 		this.latitude = new BigDecimal(latitude);
@@ -144,7 +144,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code String} of a place east or west of
 	 *            the earth's equator
 	 */
-	public SunriseSunsetUtility(String timeZoneIdentifier, String latitude,
+	public SunriseSunsetCalculator(String timeZoneIdentifier, String latitude,
 			String longitude) {
 		this.timeZone = TimeZone.getTimeZone(timeZoneIdentifier);
 		this.latitude = new BigDecimal(latitude);
@@ -164,7 +164,7 @@ public class SunriseSunsetUtility {
 	 *            the angular distance {@code String} of a place east or west of
 	 *            the earth's equator
 	 */
-	public SunriseSunsetUtility(TimeZone timeZone, String latitude,
+	public SunriseSunsetCalculator(TimeZone timeZone, String latitude,
 			String longitude) {
 		this.timeZone = timeZone;
 		this.latitude = new BigDecimal(latitude);

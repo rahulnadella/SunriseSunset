@@ -32,7 +32,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import com.sunrisesunset.util.SunriseSunsetUtility;
+import com.sunrisesunset.util.SunriseSunsetCalculator;
 
 /**
  * Sunrise or sun up is the instant at which the upper edge of the Sun appears
@@ -60,7 +60,7 @@ public class SunriseSunset {
 	protected BigDecimal latitude;
 	protected BigDecimal longitude;
 	/* The value to set to calculate the sunrise/sunset */
-	protected SunriseSunsetUtility sunrisesunset;
+	protected SunriseSunsetCalculator sunrisesunset;
 
 	/**
 	 * The {@link SunriseSunset} initialization based on time zone
@@ -82,7 +82,7 @@ public class SunriseSunset {
 			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.sunrisesunset = new SunriseSunsetUtility(timeZoneIdentifier,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZoneIdentifier,
 				latitude, longitude);
 	}
 
@@ -106,7 +106,7 @@ public class SunriseSunset {
 			BigDecimal longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.sunrisesunset = new SunriseSunsetUtility(timeZone, latitude,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZone, latitude,
 				longitude);
 	}
 
@@ -129,7 +129,7 @@ public class SunriseSunset {
 			Double longitude) {
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
-		this.sunrisesunset = new SunriseSunsetUtility(timeZoneIdentifier,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZoneIdentifier,
 				latitude, longitude);
 	}
 
@@ -151,7 +151,7 @@ public class SunriseSunset {
 	public SunriseSunset(TimeZone timeZone, Double latitude, Double longitude) {
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
-		this.sunrisesunset = new SunriseSunsetUtility(timeZone, latitude,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZone, latitude,
 				longitude);
 	}
 
@@ -174,7 +174,7 @@ public class SunriseSunset {
 			String longitude) {
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
-		this.sunrisesunset = new SunriseSunsetUtility(timeZoneIdentifier,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZoneIdentifier,
 				latitude, longitude);
 	}
 
@@ -196,7 +196,7 @@ public class SunriseSunset {
 	public SunriseSunset(TimeZone timeZone, String latitude, String longitude) {
 		this.latitude = new BigDecimal(latitude);
 		this.longitude = new BigDecimal(longitude);
-		this.sunrisesunset = new SunriseSunsetUtility(timeZone, latitude,
+		this.sunrisesunset = new SunriseSunsetCalculator(timeZone, latitude,
 				longitude);
 	}
 
@@ -439,7 +439,7 @@ public class SunriseSunset {
 	 */
 	public static Calendar getSunrise(double latitude, double longitude,
 			TimeZone timeZone, Calendar date, double degrees) {
-		return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude),
+		return new SunriseSunsetCalculator(timeZone, new BigDecimal(latitude),
 				new BigDecimal(longitude)).computeSunriseCalendar(new Twilight(
 				90 - degrees), date);
 	}
@@ -463,7 +463,7 @@ public class SunriseSunset {
 	 */
 	public static Calendar getSunset(double latitude, double longitude,
 			TimeZone timeZone, Calendar date, double degrees) {
-		return new SunriseSunsetUtility(timeZone, new BigDecimal(latitude),
+		return new SunriseSunsetCalculator(timeZone, new BigDecimal(latitude),
 				new BigDecimal(longitude)).computeSunsetCalendar(new Twilight(
 				90 - degrees), date);
 	}
