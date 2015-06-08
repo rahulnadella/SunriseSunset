@@ -1,8 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'application'
-
-mainClassName = 'src.com.sunrisesunset.api.SunriseSunset'
 
 // tag::repositories[]
 repositories {
@@ -10,15 +7,9 @@ repositories {
 }
 // end::repositories[]
 
-// tag::jar[]
-jar {
-	baseName = 'SunriseSunset'
-	version = '1.0'
-}
-// end::jar[]
-
 // tag::dependencies[]
 dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 // end::dependencies[]
 
@@ -27,4 +18,3 @@ task wrapper(type: Wrapper){
 	gradleVersion = '2.3'
 }
 // end::wrapper[]
-

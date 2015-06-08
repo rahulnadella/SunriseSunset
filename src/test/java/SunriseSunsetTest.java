@@ -21,18 +21,18 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-package com.test.sunrisesunset;
+package test.java;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import main.java.SunriseSunset;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.sunrisesunset.api.SunriseSunset;
 
 /**
  * The {@link SunriseSunsetTest} tests the implementation of the
@@ -63,7 +63,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 	
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getAstronomicalSunrise(Calendar)}
+	 * {@link main.java.SunriseSunset#getAstronomicalSunrise(Calendar)}
 	 */
 	@Test
 	public void testComputeAstronomicalSunrise() {
@@ -72,7 +72,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getAstronomicalSunset(Calendar)}
+	 * {@link main.java.SunriseSunset#getAstronomicalSunset(Calendar)}
 	 */
 	@Test
 	public void testComputeAstronomicalSunset() {
@@ -81,7 +81,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getNauticalSunrise(Calendar)}
+	 * {@link main.java.SunriseSunset#getNauticalSunrise(Calendar)}
 	 */
 	@Test
 	public void testComputeNauticalSunrise() {
@@ -90,7 +90,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getNauticalSunset(Calendar)}
+	 * {@link main.java.SunriseSunset#getNauticalSunset(Calendar)}
 	 */
 	@Test
 	public void testComputeNauticalSunset() {
@@ -99,7 +99,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getCivilSunrise(Calendar)}
+	 * {@link main.java.SunriseSunset#getCivilSunrise(Calendar)}
 	 */
 	@Test
 	public void testComputeCivilSunrise() {
@@ -108,7 +108,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getCivilSunset(Calendar)}
+	 * {@link main.java.SunriseSunset#getCivilSunset(Calendar)}
 	 */
 	@Test
 	public void testComputeCivilSunset() {
@@ -117,7 +117,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getOfficialSunrise(Calendar)}
+	 * {@link main.java.SunriseSunset#getOfficialSunrise(Calendar)}
 	 */
 	@Test
 	public void testComputeOfficialSunrise() {
@@ -126,7 +126,7 @@ public class SunriseSunsetTest extends BaseTestCase {
 	}
 
 	/**
-	 * {@link com.sunrisesunset.api.SunriseSunset#getOfficialSunrise(Calendar)}
+	 * {@link main.java.SunriseSunset#getOfficialSunrise(Calendar)}
 	 */
 	@Test
 	public void testComputeOfficialSunset() {

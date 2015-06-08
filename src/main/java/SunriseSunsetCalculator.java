@@ -21,22 +21,20 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-package com.sunrisesunset.util;
+package main.java;
 
-import static com.sunrisesunset.util.MathUtility.convertDegreesToRadians;
-import static com.sunrisesunset.util.MathUtility.convertRadiansToDegrees;
-import static com.sunrisesunset.util.MathUtility.divideBy;
-import static com.sunrisesunset.util.MathUtility.getDayOfYear;
-import static com.sunrisesunset.util.MathUtility.getUTCOffset;
-import static com.sunrisesunset.util.MathUtility.multiplyBy;
-import static com.sunrisesunset.util.MathUtility.setScale;
+import static main.java.MathUtility.convertDegreesToRadians;
+import static main.java.MathUtility.convertRadiansToDegrees;
+import static main.java.MathUtility.divideBy;
+import static main.java.MathUtility.getDayOfYear;
+import static main.java.MathUtility.getUTCOffset;
+import static main.java.MathUtility.multiplyBy;
+import static main.java.MathUtility.setScale;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Calendar;
 import java.util.TimeZone;
-
-import com.sunrisesunset.api.Twilight;
 
 /**
  * The {@link SunriseSunsetCalculator} class contains several helper methods to

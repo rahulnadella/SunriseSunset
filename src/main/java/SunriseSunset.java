@@ -21,18 +21,16 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-package com.sunrisesunset.api;
+package main.java;
 
-import static com.sunrisesunset.api.Twilight.ASTRONOMICAL;
-import static com.sunrisesunset.api.Twilight.CIVIL;
-import static com.sunrisesunset.api.Twilight.NAUTICAL;
-import static com.sunrisesunset.api.Twilight.OFFICIAL;
+import static main.java.Twilight.ASTRONOMICAL;
+import static main.java.Twilight.CIVIL;
+import static main.java.Twilight.NAUTICAL;
+import static main.java.Twilight.OFFICIAL;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.TimeZone;
-
-import com.sunrisesunset.util.SunriseSunsetCalculator;
 
 /**
  * Sunrise or sun up is the instant at which the upper edge of the Sun appears

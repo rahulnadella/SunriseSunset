@@ -8,9 +8,8 @@ The SunriseSunset class calculates the sunrise, sunset, and twilight times based
 ######Build
 > Build -> Oracle JDK 8.0
 
-###API
-
-
+######Dependencies
+> None
 
 ###Usage
 

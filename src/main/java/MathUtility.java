@@ -21,7 +21,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-package com.sunrisesunset.util;
+package main.java;
 
 import static java.lang.Math.PI;
 import static java.math.RoundingMode.HALF_EVEN;

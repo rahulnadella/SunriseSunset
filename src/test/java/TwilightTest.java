@@ -21,19 +21,18 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-package com.test.sunrisesunset;
+package test.java;
 
-import static com.sunrisesunset.api.Twilight.ASTRONOMICAL;
-import static com.sunrisesunset.api.Twilight.CIVIL;
-import static com.sunrisesunset.api.Twilight.NAUTICAL;
-import static com.sunrisesunset.api.Twilight.OFFICIAL;
+import static main.java.Twilight.ASTRONOMICAL;
+import static main.java.Twilight.CIVIL;
+import static main.java.Twilight.NAUTICAL;
+import static main.java.Twilight.OFFICIAL;
 import static org.junit.Assert.assertEquals;
+import main.java.Twilight;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.sunrisesunset.api.Twilight;
 
 /**
  * The {@link TwilightTest} class tests the functionality within the
