@@ -11,6 +11,20 @@ The SunriseSunset class calculates the sunrise, sunset, and twilight times based
 ######Dependencies
 > None
 
+###Gradle
+
+Add the following to your ``build.gradle`` file:
+
+```
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'main.java', name: 'SunriseSunset', version: '1.0'
+}
+```
+
 ###Usage
 
 
