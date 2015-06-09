@@ -90,6 +90,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("06:33", calc.getNauticalSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getNauticalSunriseCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeNauticalSunriseCalendar() {
+		GregorianCalendar nauticalSunrise = (GregorianCalendar) calc.getNauticalSunriseCalendar(eventDate);
+		assertNotNull(nauticalSunrise);
+		assertEquals("Sat Nov 01 06:33:00 EDT 2008", nauticalSunrise.getTime().toString());
+	}
 
 	/**
 	 * {@link main.java.SunriseSunset#getNauticalSunset(Calendar)}
@@ -98,6 +108,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 	public void testComputeNauticalSunset() {
 		assertTimeEquals("19:00", calc.getNauticalSunset(eventDate), eventDate
 				.getTime().toString());
+	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getNauticalSunsetCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeNauticalSunsetCalendar() {
+		GregorianCalendar nauticalSunset = (GregorianCalendar) calc.getNauticalSunsetCalendar(eventDate);
+		assertNotNull(nauticalSunset);
+		assertEquals("Sat Nov 01 19:00:00 EDT 2008", nauticalSunset.getTime().toString());
 	}
 
 	/**
