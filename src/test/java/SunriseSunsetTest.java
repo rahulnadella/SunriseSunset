@@ -267,4 +267,20 @@ public class SunriseSunsetTest extends BaseTestCase {
 		String officialSunriseForDate = calculator.getOfficialSunrise(calendar);
 		assertEquals("06:19", officialSunriseForDate);
 	}
+	
+	/**
+	 * Example test
+	 */
+	@Test
+	public void testLondon() {
+		SunriseSunset london = new SunriseSunset("Europe/London", 51.507351, -0.127758);
+		
+		Calendar date = Calendar.getInstance();
+		date.set(2015, 5, 9);
+		String sunrise = london.getOfficialSunrise(date);
+		String sunset = london.getOfficialSunset(date);
+		
+		System.out.println(sunrise);
+		System.out.println(sunset);
+	}
 }
