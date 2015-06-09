@@ -72,6 +72,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("06:01", calc.getAstronomicalSunrise(eventDate),
 				eventDate.getTime().toString());
 	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getAstronomicalSunriseCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeAstronomicalSunriseCalendar() {
+		GregorianCalendar astronomicalSunrise = (GregorianCalendar) calc.getAstronomicalSunriseCalendar(eventDate);
+		assertNotNull(astronomicalSunrise);
+		assertEquals("Sat Nov 01 06:01:00 EDT 2008", astronomicalSunrise.getTime().toString());
+	}
 
 	/**
 	 * {@link main.java.SunriseSunset#getAstronomicalSunset(Calendar)}
@@ -80,6 +90,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 	public void testComputeAstronomicalSunset() {
 		assertTimeEquals("19:32", calc.getAstronomicalSunset(eventDate),
 				eventDate.getTime().toString());
+	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getAstronomicalSunsetCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeAstronomicalSunsetCalendar() {
+		GregorianCalendar astronomicalSunset = (GregorianCalendar) calc.getAstronomicalSunsetCalendar(eventDate);
+		assertNotNull(astronomicalSunset);
+		assertEquals("Sat Nov 01 19:32:00 EDT 2008", astronomicalSunset.getTime().toString());
 	}
 
 	/**
