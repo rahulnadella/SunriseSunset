@@ -33,6 +33,7 @@ The SunriseSunset library is broken down into 4 classes:
 - [SunriseSunsetCalculator.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/SunriseSunsetCalculator.java) -> This class provides the underlying implementation point for calculating the correct sunrise and sunset times.
 - [Twilight.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/Twilight.java) -> This class holds the relationship of the different phases (astronomical, nautical, civil, and offfical) of sunrise and sunset.
 - [MathUtility.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/MathUtility.java) -> A simple utility class to hand generic math calculations (cosine, sin, etc.)
+- [TimeZones](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/TimeZones) -> A complete list of TimeZone identifiers
 
 #####SunriseSunset API
 
