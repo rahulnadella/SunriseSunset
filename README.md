@@ -25,9 +25,23 @@ dependencies {
 }
 ```
 
+###API
+
+The SunriseSunset library is broken down into 4 classes:
+
+- [SunriseSunset.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/SunriseSunset.java) -> Main class of the library where the user will create a new SunriseSunset object with the appropriate time zone, latitude, and longitude.
+- [SunriseSunsetCalculator.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/SunriseSunsetCalculator.java) -> This class provides the underlying implementation point for calculating the correct sunrise and sunset times.
+- [Twilight.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/Twilight.java) -> This class holds the relationship of the different phases (astronomical, nautical, civil, and offfical) of sunrise and sunset.
+- [MathUtility.java](https://github.com/rahulnadella/SunriseSunset/blob/master/src/main/java/MathUtility.java) -> A simple utility class to hand generic math calculations (cosine, sin, etc.)
+
 ###Usage
 
-
+Example (retrieve the sunrise and sunset):
+```
+SunriseSunset *london = new SunriseSunset("GMT", 51.507351, -0.127758);
+String sunrise = london.getOfficialSunrise(Calendar.getInstance());
+String sunset = london.getOfficialSunset(Calendar.getInstance());
+```
 
 ###License
 
