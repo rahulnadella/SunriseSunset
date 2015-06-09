@@ -108,6 +108,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("07:05", calc.getCivilSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getCivilSunriseCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeCivilSunriseCalendar() {
+		GregorianCalendar civilSunrise = (GregorianCalendar) calc.getCivilSunriseCalendar(eventDate);
+		assertNotNull(civilSunrise);
+		assertEquals("Sat Nov 01 07:05:00 EDT 2008", civilSunrise.getTime().toString());
+	}
 
 	/**
 	 * {@link main.java.SunriseSunset#getCivilSunset(Calendar)}
@@ -118,6 +128,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 				.getTime().toString());
 	}
 
+	/**
+	 * {@link main.java.SunriseSunset#getCivilSunsetCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeCivilSunsetCalendar() {
+		GregorianCalendar civilSunset = (GregorianCalendar) calc.getCivilSunsetCalendar(eventDate);
+		assertNotNull(civilSunset);
+		assertEquals("Sat Nov 01 18:28:00 EDT 2008", civilSunset.getTime().toString());
+	}
+	
 	/**
 	 * {@link main.java.SunriseSunset#getOfficialSunrise(Calendar)}
 	 */
@@ -132,9 +152,9 @@ public class SunriseSunsetTest extends BaseTestCase {
 	 */
 	@Test
 	public void testComputeOfficialSunriseCalendar() {
-		GregorianCalendar date = (GregorianCalendar) calc.getOfficialSunriseCalendar(eventDate);
-		assertNotNull(date);
-		assertEquals("Sat Nov 01 07:33:00 EDT 2008", date.getTime().toString());
+		GregorianCalendar officialSunrise = (GregorianCalendar) calc.getOfficialSunriseCalendar(eventDate);
+		assertNotNull(officialSunrise);
+		assertEquals("Sat Nov 01 07:33:00 EDT 2008", officialSunrise.getTime().toString());
 	}
 
 	/**
@@ -151,9 +171,9 @@ public class SunriseSunsetTest extends BaseTestCase {
 	 */
 	@Test
 	public void testComputeOfficialSunsetCalendar() {
-		GregorianCalendar date = (GregorianCalendar) calc.getOfficialSunsetCalendar(eventDate);
-		assertNotNull(date);
-		assertEquals("Sat Nov 01 18:00:00 EDT 2008", date.getTime().toString());
+		GregorianCalendar officialSunset = (GregorianCalendar) calc.getOfficialSunsetCalendar(eventDate);
+		assertNotNull(officialSunset);
+		assertEquals("Sat Nov 01 18:00:00 EDT 2008", officialSunset.getTime().toString());
 	}
 	
 	/**
