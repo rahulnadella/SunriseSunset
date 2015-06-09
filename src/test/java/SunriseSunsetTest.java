@@ -24,8 +24,10 @@
 package test.java;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import main.java.SunriseSunset;
@@ -124,6 +126,16 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("07:33", calc.getOfficialSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
+	
+	/**
+	 * {@link main.java.SunriseSunset#getOfficialSunriseCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeOfficialSunriseCalendar() {
+		GregorianCalendar date = (GregorianCalendar) calc.getOfficialSunriseCalendar(eventDate);
+		assertNotNull(date);
+		assertEquals("Sat Nov 01 07:33:00 EDT 2008", date.getTime().toString());
+	}
 
 	/**
 	 * {@link main.java.SunriseSunset#getOfficialSunrise(Calendar)}
@@ -133,7 +145,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("18:00", calc.getOfficialSunset(eventDate), eventDate
 				.getTime().toString());
 	}
-
+	
+	/**
+	 * {@link main.java.SunriseSunset#getOfficialSunsetCalendar(Calendar)}
+	 */
+	@Test
+	public void testComputeOfficialSunsetCalendar() {
+		GregorianCalendar date = (GregorianCalendar) calc.getOfficialSunsetCalendar(eventDate);
+		assertNotNull(date);
+		assertEquals("Sat Nov 01 18:00:00 EDT 2008", date.getTime().toString());
+	}
+	
 	/**
 	 * Tests specific location with a different {@link TimeZone}
 	 */
