@@ -20,6 +20,12 @@ dependencies {
 }
 // end::dependencies[]
 
+test {
+	testLogging {
+		exceptionFormat = 'full'
+	}
+}
+
 // tag::wrapper[]
 task wrapper(type: Wrapper){
 	gradleVersion = '2.3'
