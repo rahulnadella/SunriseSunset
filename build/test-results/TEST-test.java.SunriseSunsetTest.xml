@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.java.SunriseSunsetTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2015-06-09T15:21:52" hostname="Rahuls-MBP.atlanticbb.net" time="0.033">
+  <properties/>
+  <testcase name="testComputeAstronomicalSunrise" classname="test.java.SunriseSunsetTest" time="0.01"/>
+  <testcase name="testComputeAstronomicalSunriseCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeNauticalSunsetCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeAstronomicalSunset" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeNauticalSunriseCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeOfficialSunriseCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeOfficialSunset" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeCivilSunsetCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeCivilSunriseCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeOfficialSunrise" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeCivilSunrise" classname="test.java.SunriseSunsetTest" time="0.002"/>
+  <testcase name="testNonIntegerTimezoneOffset" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeCivilSunset" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeOfficialSunsetCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeNauticalSunset" classname="test.java.SunriseSunsetTest" time="0.002"/>
+  <testcase name="testSpecificDateLocationAndTimezone" classname="test.java.SunriseSunsetTest" time="0.003"/>
+  <testcase name="testComputeNauticalSunrise" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testComputeAstronomicalSunsetCalendar" classname="test.java.SunriseSunsetTest" time="0.001"/>
+  <testcase name="testTrue" classname="test.java.SunriseSunsetTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

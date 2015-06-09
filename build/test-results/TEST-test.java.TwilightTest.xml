@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.java.TwilightTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-06-09T15:21:53" hostname="Rahuls-MBP.atlanticbb.net" time="0.001">
+  <properties/>
+  <testcase name="testCivilTwilight" classname="test.java.TwilightTest" time="0.0"/>
+  <testcase name="testOfficialTwilight" classname="test.java.TwilightTest" time="0.0"/>
+  <testcase name="testAstronomicalTwilight" classname="test.java.TwilightTest" time="0.0"/>
+  <testcase name="testNauticalTwilight" classname="test.java.TwilightTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
