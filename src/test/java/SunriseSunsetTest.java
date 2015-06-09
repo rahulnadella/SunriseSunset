@@ -59,11 +59,10 @@ public class SunriseSunsetTest extends BaseTestCase {
 	 * Tear down of the {@link SunriseSunsetTest}
 	 */
 	@After
-	public void tearDown()
-	{
+	public void tearDown() {
 		super.tearDown();
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getAstronomicalSunrise(Calendar)}
 	 */
@@ -72,15 +71,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("06:01", calc.getAstronomicalSunrise(eventDate),
 				eventDate.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getAstronomicalSunriseCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeAstronomicalSunriseCalendar() {
-		GregorianCalendar astronomicalSunrise = (GregorianCalendar) calc.getAstronomicalSunriseCalendar(eventDate);
+		GregorianCalendar astronomicalSunrise = (GregorianCalendar) calc
+				.getAstronomicalSunriseCalendar(eventDate);
 		assertNotNull(astronomicalSunrise);
-		assertEquals("Sat Nov 01 06:01:00 EDT 2008", astronomicalSunrise.getTime().toString());
+		assertEquals("Sat Nov 01 06:01:00 EDT 2008", astronomicalSunrise
+				.getTime().toString());
 	}
 
 	/**
@@ -91,15 +92,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("19:32", calc.getAstronomicalSunset(eventDate),
 				eventDate.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getAstronomicalSunsetCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeAstronomicalSunsetCalendar() {
-		GregorianCalendar astronomicalSunset = (GregorianCalendar) calc.getAstronomicalSunsetCalendar(eventDate);
+		GregorianCalendar astronomicalSunset = (GregorianCalendar) calc
+				.getAstronomicalSunsetCalendar(eventDate);
 		assertNotNull(astronomicalSunset);
-		assertEquals("Sat Nov 01 19:32:00 EDT 2008", astronomicalSunset.getTime().toString());
+		assertEquals("Sat Nov 01 19:32:00 EDT 2008", astronomicalSunset
+				.getTime().toString());
 	}
 
 	/**
@@ -110,15 +113,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("06:33", calc.getNauticalSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getNauticalSunriseCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeNauticalSunriseCalendar() {
-		GregorianCalendar nauticalSunrise = (GregorianCalendar) calc.getNauticalSunriseCalendar(eventDate);
+		GregorianCalendar nauticalSunrise = (GregorianCalendar) calc
+				.getNauticalSunriseCalendar(eventDate);
 		assertNotNull(nauticalSunrise);
-		assertEquals("Sat Nov 01 06:33:00 EDT 2008", nauticalSunrise.getTime().toString());
+		assertEquals("Sat Nov 01 06:33:00 EDT 2008", nauticalSunrise.getTime()
+				.toString());
 	}
 
 	/**
@@ -129,15 +134,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("19:00", calc.getNauticalSunset(eventDate), eventDate
 				.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getNauticalSunsetCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeNauticalSunsetCalendar() {
-		GregorianCalendar nauticalSunset = (GregorianCalendar) calc.getNauticalSunsetCalendar(eventDate);
+		GregorianCalendar nauticalSunset = (GregorianCalendar) calc
+				.getNauticalSunsetCalendar(eventDate);
 		assertNotNull(nauticalSunset);
-		assertEquals("Sat Nov 01 19:00:00 EDT 2008", nauticalSunset.getTime().toString());
+		assertEquals("Sat Nov 01 19:00:00 EDT 2008", nauticalSunset.getTime()
+				.toString());
 	}
 
 	/**
@@ -148,15 +155,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("07:05", calc.getCivilSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getCivilSunriseCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeCivilSunriseCalendar() {
-		GregorianCalendar civilSunrise = (GregorianCalendar) calc.getCivilSunriseCalendar(eventDate);
+		GregorianCalendar civilSunrise = (GregorianCalendar) calc
+				.getCivilSunriseCalendar(eventDate);
 		assertNotNull(civilSunrise);
-		assertEquals("Sat Nov 01 07:05:00 EDT 2008", civilSunrise.getTime().toString());
+		assertEquals("Sat Nov 01 07:05:00 EDT 2008", civilSunrise.getTime()
+				.toString());
 	}
 
 	/**
@@ -173,11 +182,13 @@ public class SunriseSunsetTest extends BaseTestCase {
 	 */
 	@Test
 	public void testComputeCivilSunsetCalendar() {
-		GregorianCalendar civilSunset = (GregorianCalendar) calc.getCivilSunsetCalendar(eventDate);
+		GregorianCalendar civilSunset = (GregorianCalendar) calc
+				.getCivilSunsetCalendar(eventDate);
 		assertNotNull(civilSunset);
-		assertEquals("Sat Nov 01 18:28:00 EDT 2008", civilSunset.getTime().toString());
+		assertEquals("Sat Nov 01 18:28:00 EDT 2008", civilSunset.getTime()
+				.toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getOfficialSunrise(Calendar)}
 	 */
@@ -186,15 +197,17 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("07:33", calc.getOfficialSunrise(eventDate), eventDate
 				.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getOfficialSunriseCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeOfficialSunriseCalendar() {
-		GregorianCalendar officialSunrise = (GregorianCalendar) calc.getOfficialSunriseCalendar(eventDate);
+		GregorianCalendar officialSunrise = (GregorianCalendar) calc
+				.getOfficialSunriseCalendar(eventDate);
 		assertNotNull(officialSunrise);
-		assertEquals("Sat Nov 01 07:33:00 EDT 2008", officialSunrise.getTime().toString());
+		assertEquals("Sat Nov 01 07:33:00 EDT 2008", officialSunrise.getTime()
+				.toString());
 	}
 
 	/**
@@ -205,17 +218,19 @@ public class SunriseSunsetTest extends BaseTestCase {
 		assertTimeEquals("18:00", calc.getOfficialSunset(eventDate), eventDate
 				.getTime().toString());
 	}
-	
+
 	/**
 	 * {@link main.java.SunriseSunset#getOfficialSunsetCalendar(Calendar)}
 	 */
 	@Test
 	public void testComputeOfficialSunsetCalendar() {
-		GregorianCalendar officialSunset = (GregorianCalendar) calc.getOfficialSunsetCalendar(eventDate);
+		GregorianCalendar officialSunset = (GregorianCalendar) calc
+				.getOfficialSunsetCalendar(eventDate);
 		assertNotNull(officialSunset);
-		assertEquals("Sat Nov 01 18:00:00 EDT 2008", officialSunset.getTime().toString());
+		assertEquals("Sat Nov 01 18:00:00 EDT 2008", officialSunset.getTime()
+				.toString());
 	}
-	
+
 	/**
 	 * Tests specific location with a different {@link TimeZone}
 	 */
